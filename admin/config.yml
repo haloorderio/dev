@@ -4,15 +4,24 @@ backend:
   branch: main
   site_domain: relaxed-blancmange-bf2a4b.netlify.app
 
-media_folder: "assets/img/upload" # Media files will be stored in the repo under images/uploads
-public_folder: "/assets/img/upload" # The src attribute for uploaded media will begin with /images/uploads
+site_url: https://hikammn.github.io
+display_url: https://hikammn.github.io
+logo_url: https://hikammn.github.io/assets/img/favicon.png
+
+locale: 'id'
+show_preview_links: true
+search: true
+
+media_folder: "assets/img/upload"
+public_folder: "/assets/img/upload"
 
 collections:
-  - name: "produk" # Used in routes, e.g., /admin/collections/blog
-    label: "Produk" # Used in the UI
+  - name: posts
+    identifier_field: produk
+    label: "Produk"
     folder: "_posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "YYYY-MM-DD-title.md" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: "{{year}}-{{month}}-{{day}}_{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
       - {label: "Author", name: "author", widget: "string"}

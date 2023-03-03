@@ -7,6 +7,12 @@
 </head>
 <body>
   <!-- Include the script that builds the page and powers Netlify CMS -->
+  <script type="text/javascript">
+    import CMS from 'netlify-cms-app';
+    import { id } from 'netlify-cms-locales';
+
+    CMS.registerLocale('id', id);
+  </script>
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 </body>
 </html>
