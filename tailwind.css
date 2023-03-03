@@ -1,0 +1,86 @@
+---
+---
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--font-1: 'DM Sans', sans-serif;
+		--font-2: 'Kalam', cursive;
+
+		--color-1: 255 148 63;	/* #ff943f - Orange */
+		--color-2: 233 115 3;	/* #e97303 - Dark Orange */
+		--color-3: 250 204 21;	/* #facc15 - Yellow */
+	}
+
+	* {
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+	}
+
+	::-moz-selection {
+		@apply text-white bg-color-1;
+	}
+	::selection {
+		@apply text-white bg-color-1;
+	}
+	:focus-visible {
+		@apply outline-0;
+	}
+
+	html {
+		@apply bg-white;
+	}
+	html.dark {
+		@apply bg-zinc-900;
+	}
+
+	body {
+		@apply font-theme-1 cursor-default text-black/80 dark:text-white transition-colors duration-100 break-words;
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+
+	a {
+		@apply transition-[colors_opacity] duration-200 text-color-1 hover:text-color-2;
+	}
+	button {
+		@apply transition-[colors_opacity] duration-200 outline-0;
+	}
+	p {
+		@apply mb-5 last:mb-0;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		@apply font-bold;
+	}
+
+	input,
+	textarea {
+		@apply bg-white dark:bg-zinc-800 appearance-none;
+	}
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	textarea:-webkit-autofill,
+	textarea:-webkit-autofill:hover,
+	textarea:-webkit-autofill:focus,
+	select:-webkit-autofill,
+	select:-webkit-autofill:hover,
+	select:-webkit-autofill:focus {
+		-webkit-text-fill-color: black;
+		-webkit-box-shadow: 0 0 0 1000px rgba(204,251,241,.5) inset;
+		color: black;
+		box-shadow: 0 0 0 1000px rgba(204,251,241,.5) inset;
+		transition: background-color 5000s ease-in-out 0s;
+	}
+	input[type=number]::-webkit-outer-spin-button,
+	input[type=number]::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+	input[type=number] {
+		-moz-appearance: textfield;
+	}
+}
