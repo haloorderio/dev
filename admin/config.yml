@@ -8,7 +8,7 @@ site_url: https://hikammn.github.io
 display_url: https://hikammn.github.io
 logo_url: https://hikammn.github.io/assets/img/favicon.png
 
-locale: 'id'
+locale: 'de'
 show_preview_links: true
 search: true
 
@@ -21,7 +21,7 @@ collections:
     label: "Produk"
     folder: "_posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}_{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
       - {label: "Author", name: "author", widget: "string"}

@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin - Content Manager</title>
+  <title>Admin Panel</title>
 </head>
 <body>
   <!-- Include the script that builds the page and powers Netlify CMS -->
-  <script type="text/javascript">
-    import CMS from 'netlify-cms-app';
-    import { id } from 'netlify-cms-locales';
-
-    CMS.registerLocale('id', id);
-  </script>
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <script src="https://unpkg.com/browse/netlify-cms-locales@1.28.0/dist/netlify-cms-locales.js"></script>
+  <script>
+    import CMS from 'netlify-cms-app';
+    import { de } from 'netlify-cms-locales';
+
+    CMS.registerLocale('de', de);
+  </script>
 </body>
 </html>
