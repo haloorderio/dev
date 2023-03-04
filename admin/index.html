@@ -13,20 +13,14 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon.png" />
 	<link rel="apple-touch-icon" href="../assets/img/favicon.png" />
 	<meta name="msapplication-TileImage" content="../assets/img/favicon.png" />
-	<style>
-		.css-n1lu6x-CustomIconWrapper {
-			text-align: center;
-		}
-		.css-n1lu6x-CustomIconWrapper img {
-			max-width: 100%;
-			max-height: 120px;
-			object-fit: contain;
-		}
-	</style>
+	<!-- Preload -->
+	<link rel="preload" as="style" href="netlify-cms.css" />
+	<link rel="preload" as="script" href="netlify-cms.js" />
 </head>
 <body>
 	<!-- Include the script that builds the page and powers Netlify CMS -->
 	<!-- <script src="https://unpkg.com/netlify-cms@^2.10.192/dist/netlify-cms.js"></script> -->
 	<script src="netlify-cms.js"></script>
+	<link rel="stylesheet" href="netlify-cms.css" />
 </body>
 </html>

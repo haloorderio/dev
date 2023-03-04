@@ -1,0 +1,23 @@
+/*!
+ * Netlify CMS
+ * Modified by Degiam [https://degiam.github.io]
+ * Copyright (c) 2023
+ *
+ */
+
+[class*="CustomIconWrapper"] {
+	text-align: center;
+}
+[class*="CustomIconWrapper"] img {
+	max-width: 100%;
+	max-height: 120px;
+	object-fit: contain;
+}
+[class*="CollectionTopContainer-card-cardTop"],
+[class*="CollectionControlsContainer"],
+[class*="ListCard-card"] {
+	width: 100%;
+}
+[class*="CardsGrid"] {
+	width: calc(100% + 12px);
+}
