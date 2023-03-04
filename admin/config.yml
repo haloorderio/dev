@@ -15,6 +15,16 @@ media_folder: "assets/img/upload"
 public_folder: "/assets/img/upload"
 
 collections:
+  - name: pages
+    identifier_field: laman
+    label: "Laman"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template", name: "layout", widget: "hidden", default: "page"}
+      - {label: "Judul", name: "title", widget: "string"}
+      - {label: "Konten", name: "body", widget: "markdown"}
   - name: posts
     identifier_field: produk
     label: "Produk"
