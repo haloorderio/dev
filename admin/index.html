@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Panel</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Admin Panel</title>
+	<style>
+		.css-n1lu6x-CustomIconWrapper {
+			text-align: center;
+		}
+		.css-n1lu6x-CustomIconWrapper img {
+			max-width: 100%;
+			max-height: 120px;
+			object-fit: contain;
+		}
+	</style>
 </head>
 <body>
-  <!-- Include the script that builds the page and powers Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-  <!-- <script src="https://unpkg.com/browse/netlify-cms-locales@1.28.0/dist/netlify-cms-locales.js"></script> -->
-  <script src="netlify-cms-locales-custom.js"></script>
-  <script>
-    CMS.registerLocale('id', id);
-  </script>
+	<!-- Include the script that builds the page and powers Netlify CMS -->
+	<!-- <script src="https://unpkg.com/netlify-cms@^2.10.192/dist/netlify-cms.js"></script>
+	<script src="https://unpkg.com/netlify-cms-locales@^1.39.0/dist/netlify-cms-locales.js"></script> -->
+	<!-- Customize to include Indonesia -->
+	<script src="netlify-cms.js"></script>
+	<script src="netlify-cms-locales.js"></script>
+	<script>CMS.registerLocale('id',id)</script>
 </body>
 </html>
