@@ -40,6 +40,9 @@ gtm:
 # System Configs
 #----------------------------
 
+# Permanent links for posts and pages
+permalink: /:title/
+
 # Use the following plugins
 plugins:
   - jekyll-postcss
