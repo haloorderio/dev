@@ -11,8 +11,8 @@ logo_url: https://hikammn.github.io/assets/img/favicon.png
 show_preview_links: true
 search: true
 
-media_folder: "assets/img/upload"
-public_folder: "/assets/img/upload"
+media_folder: "assets/upload"
+public_folder: "/assets/upload"
 
 collections:
   - label: "Laman"
