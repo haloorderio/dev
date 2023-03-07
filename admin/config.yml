@@ -20,7 +20,7 @@ collections:
     identifier_field: name
     folder: "_posts"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
       - {label: "Template", name: "layout", widget: "hidden", default: "page"}
       - {label: "Judul", name: "title", widget: "string"}
@@ -28,12 +28,9 @@ collections:
   - label: "Produk"
     name: "posts"
     identifier_field: name
-    folder: "_posts"
+    folder: "_posts/produk"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    media_library:
-      config:
-        multiple: true
     fields:
       - {label: "Template", name: "layout", widget: "hidden", default: "post"}
       - {label: "Judul", name: "title", widget: "string"}
