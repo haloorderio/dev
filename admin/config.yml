@@ -16,23 +16,38 @@ public_folder: "/assets/upload"
 
 collections:
   - label: "Laman"
-    name: "pages"
+    name: "page"
     identifier_field: name
-    folder: "_posts"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template", name: "layout", widget: "hidden", default: "page"}
-      - {label: "Judul", name: "title", widget: "string"}
-      - {label: "Konten", name: "body", widget: "markdown"}
-  - label: "Produk"
-    name: "posts"
-    identifier_field: name
-    folder: "_posts/produk"
+    folder: "_posts/page"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template", name: "layout", widget: "hidden", default: "post"}
+      - {label: "Template", name: "layout", widget: "hidden", default: "page"}
+      - {label: "Judul", name: "title", widget: "string"}
+      - {label: "Publikasi", name: "date", widget: "datetime", default: ""}
+      - {label: "Konten", name: "body", widget: "markdown"}
+  - label: "Produk"
+    name: "post"
+    identifier_field: name
+    folder: "_posts/product"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template", name: "layout", widget: "hidden", default: "product"}
+      - {label: "Judul", name: "title", widget: "string"}
+      - {label: "Publikasi", name: "date", widget: "datetime", default: ""}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image"}
+      - {label: "Kategori", name: "category", widget: "string"}
+      - {label: "Tag", name: "tag", widget: "list"}
+      - {label: "Konten", name: "body", widget: "markdown"}
+  - label: "Blog"
+    name: "blog"
+    identifier_field: name
+    folder: "_posts/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Judul", name: "title", widget: "string"}
       - {label: "Publikasi", name: "date", widget: "datetime"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}

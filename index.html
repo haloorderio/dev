@@ -4,13 +4,8 @@ layout: default
 
 <section>
 	{% for post in site.posts %}
-	<article class="my-6">
+	<article class="my-6" style="margin: 2rem 0;">
 		<h1>{{ post.title }}</h1>
-
-		<blockquote>{{ post.summary }}</blockquote>
-
-		<p>{{ post.excerpt }}</p>
-
 		<p><a href="{{ post.url }}">Lihat selengkapnya</a></p>
 	</article>
 	{% endfor %}
