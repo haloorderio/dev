@@ -5,6 +5,14 @@
  * Copyright (c) 2023
  */
 
+* {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+:focus-visible {
+	outline: 0;
+}
+
 [class*="CustomIconWrapper"] {
 	text-align: center;
 }
@@ -26,6 +34,7 @@ header nav li > * {
 	white-space: nowrap;
 }
 [role="menu"] > ul {
+	width: fit-content;
 	left: auto;
 	right: 0;
 }
@@ -99,6 +108,8 @@ header nav li > * {
 	.css-1f3mf5k-StyledModal {
 		padding: 15px;
 		grid-template-rows: 190px auto;
+		width: calc(100% - 1rem);
+		height: 90%;
 	}
 	.css-svjxk-SearchContainer {
 		display: block;
@@ -144,10 +155,10 @@ header nav li > * {
 	}
 	.css-hn3jn7-EditorContainer {
 		min-width: 0;
-		padding-top: 100px;
+		padding-top: 55px;
 	}
 	.css-2oej7z-ToolbarContainer {
-		height: 100px;
+		height: initial;
 		width: 100%;
 		min-width: 0;
 	}
@@ -155,12 +166,51 @@ header nav li > * {
 		flex-direction: column;
 	}
 	.css-tg1x8v-IconWrapper {
-		padding-right: 1rem;
-		width: calc(24px + 1rem);
+		width: 24px;
 	}
 
 	nav li {
-		width: calc(35px + 1rem);
+		width: 35px;
 		overflow: hidden;
+	}
+
+	[class*="ToolbarSectionMeta"] {
+		display: none;
+	}
+	[class*="ToolbarSectionBackLink"] {
+		background-color: #f7f7f7;
+		padding: 1rem;
+	}
+	[class*="ToolbarSectionBackLink"] > div:last-child,
+	[class*="ToolbarSubSectionLast"] {
+		display: none;
+	}
+	[class*="ToolbarSectionMain"] {
+		padding: .6rem;
+	}
+
+	.css-1iwq7gj-GridCard-card {
+		width: calc(100% - 12px);
+		flex: 0 0 auto;
+	}
+	.css-134r1tn-RowContainer {
+		display: block;
+		margin-bottom: 1.5rem;
+	}
+	.css-1o58c3b-ButtonsContainer {
+		text-align: left;
+		margin-left: -15px;
+		margin-top: 1rem;
+	}
+	.css-1i85phj-CloseButton-button {
+		right: 40px;
+		left: auto;
+	}
+	.css-g42qkj-ToolbarSubSectionFirst {
+		flex-direction: row-reverse;
+		margin-left: auto;
+	}
+	.css-179mynt-BackArrow {
+		margin-right: 0;
 	}
 }
