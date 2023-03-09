@@ -80,7 +80,7 @@ header nav li > * {
 	flex: 0 0 calc(33.3333% - 12px);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 999px) {
 	.css-1iwq7gj-GridCard-card {
 		flex: 0 0 calc(50% - 12px);
 	}
@@ -181,6 +181,10 @@ header nav li > * {
 	nav li {
 		width: 35px;
 		overflow: hidden;
+	}
+
+	[role="menu"] > ul {
+		min-width: 220px;
 	}
 
 	[class*="ToolbarSectionMeta"] {
