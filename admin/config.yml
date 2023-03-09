@@ -8,14 +8,18 @@ site_url: https://hikammn.github.io
 display_url: https://hikammn.github.io
 logo_url: https://hikammn.github.io/assets/img/favicon.png
 
-show_preview_links: true
 search: true
+show_preview_links: true
+publish_mode: editorial_workflow
+editor:
+  preview: false
 
 media_folder: "assets/upload"
 public_folder: "/assets/upload"
 
 collections:
   - label: "Laman"
+    description: "Deserunt laboris esse in proident id mollit excepteur in ea aliquip."
     name: "page"
     identifier_field: name
     folder: "_posts/page"
@@ -24,10 +28,11 @@ collections:
     fields:
       - {label: "Template", name: "layout", widget: "hidden", default: "page"}
       - {label: "Judul", name: "title", widget: "string"}
-      - {label: "Publikasi", name: "date", widget: "datetime", default: ""}
+      - {label: "Publikasi", name: "date", widget: "datetime"}
       - {label: "Konten", name: "body", widget: "markdown"}
   - label: "Produk"
-    name: "post"
+    description: "Lorem ipsum occaecat adipisicing dolor voluptate aute anim consectetur tempor in cupidatat ex in irure."
+    name: "product"
     identifier_field: name
     folder: "_posts/product"
     create: true
@@ -35,12 +40,13 @@ collections:
     fields:
       - {label: "Template", name: "layout", widget: "hidden", default: "product"}
       - {label: "Judul", name: "title", widget: "string"}
-      - {label: "Publikasi", name: "date", widget: "datetime", default: ""}
+      - {label: "Publikasi", name: "date", widget: "datetime"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
       - {label: "Kategori", name: "category", widget: "string"}
       - {label: "Tag", name: "tag", widget: "list"}
       - {label: "Konten", name: "body", widget: "markdown"}
   - label: "Blog"
+    description: "Nulla duis labore adipisicing adipisicing sit elit dolore esse incididunt nostrud culpa exercitation nostrud excepteur dolor aute exercitation cupidatat."
     name: "blog"
     identifier_field: name
     folder: "_posts/blog"

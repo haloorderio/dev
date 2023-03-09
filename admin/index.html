@@ -22,5 +22,20 @@
 	<!-- <script src="https://unpkg.com/netlify-cms@^2.10.192/dist/netlify-cms.js"></script> -->
 	<script src="netlify-cms.js"></script>
 	<link rel="stylesheet" href="netlify-cms.css" />
+	<script>
+		let page = ['/page/','/product/']
+		document.addEventListener('click', (e) => {
+			for (i=0; i<page.length; i++) {
+				let string = page[i]
+				setTimeout(() => {
+					if ( window.location.href.indexOf(string) > -1 ) {
+						document.querySelectorAll('.rdt').forEach(item => {
+							item.closest('[class*="ControlContainer"]').style.display = 'none'
+						})
+					}
+				},50)
+			}
+		})
+	</script>
 </body>
 </html>
