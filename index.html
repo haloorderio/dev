@@ -2,11 +2,47 @@
 layout: default
 ---
 
-<section>
+<h2>Laman</h2>
+
+<section class="bg-zinc-100 p-5 rounded-lg my-5">
 	{% for post in site.posts %}
-	<article class="my-6" style="margin: 2rem 0;">
-		<h1>{{ post.title }}</h1>
-		<p><a href="{{ post.url }}">Lihat selengkapnya</a></p>
-	</article>
+		{% if post.layout != 'page' %}
+			{% continue %}
+		{% endif %}
+
+		<article class="my-4 first:mt-0 last:mb-0">
+			<h3>{{ post.title }}</h3>
+			<p><a href="{{ post.url }}">Lihat selengkapnya</a></p>
+		</article>
+	{% endfor %}
+</section>
+
+<h2>Blog</h2>
+
+<section class="bg-zinc-100 p-5 rounded-lg my-5">
+	{% for post in site.posts %}
+		{% if post.layout != 'blog' %}
+			{% continue %}
+		{% endif %}
+
+		<article class="my-4 first:mt-0 last:mb-0">
+			<h3>{{ post.title }}</h3>
+			<p><a href="{{ post.url }}">Lihat selengkapnya</a></p>
+		</article>
+	{% endfor %}
+</section>
+
+<h2>Produk</h2>
+
+<section class="bg-zinc-100 p-5 rounded-lg my-5">
+	{% for post in site.posts %}
+		{% if post.layout != 'product' %}
+			{% continue %}
+		{% endif %}
+
+		<article class="my-4 first:mt-0 last:mb-0">
+			<h3>{{ post.title }}</h3>
+			<p><a href="{{ post.url }}">Lihat selengkapnya</a></p>
+		</article>
 	{% endfor %}
 </section>

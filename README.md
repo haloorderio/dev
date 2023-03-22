@@ -85,9 +85,10 @@ https://api.netlify.com/auth/done
 
 3. __on progress__
 
+
 ## Set Config
 
-1. Set configuration of your website on `/admin/config.yml`, you can change this to yours :
+Set configuration of your website on `/admin/config.yml`, you can change this to yours :
 ```
 backend:
   name: github
@@ -95,13 +96,31 @@ backend:
   branch: <branch>                # e.g. main
   site_domain: <netlify_app_url>  # e.g. relaxed-blancmange-bf2a4b.netlify.app
 
+local_backend:
+  url: <localhost_port_url>       # e.g. http://localhost:8081/api/v1
+
 site_url: <site_url>              # e.g. https://hikammn.com or https://hikammn.github.io
 display_url: <site_url>           # e.g. https://hikammn.com or https://hikammn.github.io
 logo_url: <image_url>             # e.g. https://hikammn.github.io/assets/img/favicon.png
 ```
+
+## Running CMS on Local
+
+Open your terminal, follow these step :
+
+1. Install `netlify-cms-proxy-server`
+```
+npm i netlify-cms-proxy-server
+```
+2. Then running it
+```
+npx netlify-cms-proxy-server
+```
+3. You'll see the port used for this proxy server, the default is `8081`
 
 
 # Source
 
 - https://mzrn.sh/2022/04/09/starting-a-blank-jekyll-site-with-tailwind-css-in-2022/
 - https://sujaykundu.com/blog/how-to-setup-netlify-cms-with-github-pages-hosted-jekyll-blog/
+- https://decapcms.org/docs/beta-features/#working-with-a-local-git-repository

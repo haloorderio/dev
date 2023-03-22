@@ -4,6 +4,9 @@ backend:
   branch: main
   site_domain: relaxed-blancmange-bf2a4b.netlify.app
 
+local_backend:
+  url: http://localhost:8081/api/v1
+
 site_url: https://hikammn.github.io
 display_url: https://hikammn.github.io
 logo_url: https://hikammn.github.io/assets/img/favicon.png

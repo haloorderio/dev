@@ -80,6 +80,26 @@ header nav li > * {
 	flex: 0 0 calc(33.3333% - 12px);
 }
 
+.css-155hzph-LoaderText:after {
+	content: '';
+	display: block;
+	background: rgba(255,255,255,.9);
+	width: calc(100% + 2rem);
+	height: calc(100% + 2rem);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	margin: -1.4rem -1rem;
+	border-radius: 0.5rem;
+	box-shadow: 0 0 20px rgba(0,0,0,.1);
+}
+.css-1pug8yq-LoaderItem {
+	min-width: 50px;
+	position: relative;
+	transform: initial;
+}
+
 @media (max-width: 999px) {
 	.css-1iwq7gj-GridCard-card {
 		flex: 0 0 calc(50% - 12px);
