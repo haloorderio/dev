@@ -25,6 +25,8 @@ collections:
     name: "page"
     identifier_field: name
     folder: "_posts/page"
+    media_folder: "../../assets/upload/page"
+    public_folder: "/assets/upload/page"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -37,6 +39,8 @@ collections:
     name: "product"
     identifier_field: name
     folder: "_posts/product"
+    media_folder: "../../assets/upload/product"
+    public_folder: "/assets/upload/product"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -45,13 +49,15 @@ collections:
       - {label: "Publikasi", name: "date", widget: "datetime"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
       - {label: "Kategori", name: "category", widget: "string"}
-      - {label: "Tag", name: "tag", widget: "list"}
+      - {label: "Tag", name: "tag", widget: "list", hint: "Pisahkan dengan koma"}
       - {label: "Konten", name: "body", widget: "markdown"}
   - label: "Blog"
     description: "Nulla duis labore adipisicing adipisicing sit elit dolore esse incididunt nostrud culpa exercitation nostrud excepteur dolor aute exercitation cupidatat."
     name: "blog"
     identifier_field: name
     folder: "_posts/blog"
+    media_folder: "../../assets/upload/blog"
+    public_folder: "/assets/upload/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -60,5 +66,5 @@ collections:
       - {label: "Publikasi", name: "date", widget: "datetime"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
       - {label: "Kategori", name: "category", widget: "string"}
-      - {label: "Tag", name: "tag", widget: "list"}
+      - {label: "Tag", name: "tag", widget: "list", hint: "Pisahkan dengan koma"}
       - {label: "Konten", name: "body", widget: "markdown"}
