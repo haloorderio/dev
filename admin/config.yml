@@ -33,7 +33,7 @@ collections:
       - {label: "Publikasi", name: "published", widget: "boolean", default: true}
       - {label: "Judul", name: "title", widget: "string"}
       - {label: "Konten", name: "body", widget: "markdown"}
-      - {label: "Tanggal", name: "date", widget: "datetime"}
+      - {label: "Tanggal", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm"}
   - label: "Produk"
     name: "product"
     identifier_field: name
@@ -46,7 +46,7 @@ collections:
       - {label: "Template", name: "layout", widget: "hidden", default: "product"}
       - {label: "Publikasi", name: "published", widget: "boolean", default: true}
       - {label: "Judul", name: "title", widget: "string"}
-      - {label: "Tanggal", name: "date", widget: "datetime"}
+      - {label: "Tanggal", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
       - {label: "Kategori", name: "category", widget: "string"}
       - {label: "Tag", name: "tag", widget: "list", hint: "Pisahkan dengan koma"}
@@ -63,7 +63,7 @@ collections:
       - {label: "Template", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Publikasi", name: "published", widget: "boolean", default: true}
       - {label: "Judul", name: "title", widget: "string"}
-      - {label: "Tanggal", name: "date", widget: "datetime"}
+      - {label: "Tanggal", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
       - {label: "Kategori", name: "category", widget: "string"}
       - {label: "Tag", name: "tag", widget: "list", hint: "Pisahkan dengan koma"}
