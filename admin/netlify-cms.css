@@ -37,13 +37,17 @@ header nav li > * {
 	white-space: nowrap;
 }
 [role="menu"] > ul {
-	width: fit-content;
 	left: auto;
 	right: 0;
 }
 
+[class*="AppHeaderNavList"] > li:not(:first-child) {
+	display: none;
+}
+
 [class*="AppHeaderNavList"] [class*="IconWrapper"] svg,
-[class*="SidebarNavList"] [class*="IconWrapper"] svg {
+[class*="SidebarNavList"] [class*="IconWrapper"] svg,
+[class*="SearchContainer"] [class*="IconWrapper"] svg {
 	display: none;
 }
 [class*="AppHeaderNavList"] li a:not(:hover):not(.header-link-active) [class*="IconWrapper"],
@@ -68,6 +72,10 @@ header nav li > * {
 }
 [data-testid="blog"] [class*="IconWrapper"]:before {
 	content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="rgb(58, 105, 199)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>') !important;
+}
+
+[class*="SearchContainer"] [class*="IconWrapper"]:before {
+	content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="18" fill="none" stroke="rgb(58, 105, 199)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>');
 }
 
 .css-npvq26-SidebarHeading {
@@ -101,6 +109,21 @@ header nav li > * {
 	min-width: 50px;
 	position: relative;
 	transform: initial;
+}
+
+[for*="published-field"] {
+	display: none;
+}
+[for*="published-field"] + div {
+	padding: 0;
+	border: none;
+	text-align: right;
+	padding-right: 70px;
+}
+[for*="published-field"] + div button:before {
+	content: 'Publikasi';
+	position: absolute;
+	left: 3rem;
 }
 
 @media (max-width: 999px) {
@@ -209,6 +232,9 @@ header nav li > * {
 	[role="menu"] > ul {
 		min-width: 220px;
 	}
+	.cms-editor-visual [role="menu"] > ul {
+		min-width: initial;
+	}
 
 	[class*="ToolbarSectionMeta"] {
 		display: none;
@@ -231,7 +257,6 @@ header nav li > * {
 	}
 	.css-134r1tn-RowContainer {
 		display: block;
-		margin-bottom: 1.5rem;
 	}
 	.css-1o58c3b-ButtonsContainer {
 		text-align: left;
@@ -248,5 +273,12 @@ header nav li > * {
 	}
 	.css-179mynt-BackArrow {
 		margin-right: 0;
+	}
+
+	[class*="SearchContainer"] + [class*="ButtonsContainer"] > button {
+		font-size: 11px;
+	}
+	[class*="ButtonsContainer"] > * {
+		margin-bottom: 1rem;
 	}
 }

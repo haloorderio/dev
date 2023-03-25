@@ -1,3 +1,7 @@
+---
+sitemap: false
+---
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -23,19 +27,30 @@
 	<script src="netlify-cms.js"></script>
 	<link rel="stylesheet" href="netlify-cms.css" />
 	<script>
+		function hideDate() {
+			let checkItem = setInterval(() => {
+				if ( document.querySelectorAll('.rdt').length > 0 ) {
+					document.querySelectorAll('.rdt').forEach(item => {
+						item.closest('[class*="ControlContainer"]').style.display = 'none'
+					})
+					clearInterval(checkItem)
+				}
+			},1)
+		}
+
 		let page = ['/page/','/product/']
-		document.addEventListener('click', (e) => {
-			for (i=0; i<page.length; i++) {
-				let string = page[i]
+
+		for (i=0; i<page.length; i++) {
+			let string = page[i]
+
+			if ( window.location.href.indexOf(string) > -1 ) hideDate()
+
+			document.addEventListener('click', () => {
 				setTimeout(() => {
-					if ( window.location.href.indexOf(string) > -1 ) {
-						document.querySelectorAll('.rdt').forEach(item => {
-							item.closest('[class*="ControlContainer"]').style.display = 'none'
-						})
-					}
+					if ( window.location.href.indexOf(string) > -1 ) hideDate()
 				},50)
-			}
-		})
+			})
+		}
 	</script>
 </body>
 </html>
