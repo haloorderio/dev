@@ -34,23 +34,6 @@ collections:
       - {label: "Judul", name: "title", widget: "string"}
       - {label: "Konten", name: "body", widget: "markdown"}
       - {label: "Tanggal", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm"}
-  - label: "Produk"
-    name: "product"
-    identifier_field: name
-    folder: "_posts/product"
-    media_folder: "../../assets/upload/product"
-    public_folder: "/assets/upload/product"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Template", name: "layout", widget: "hidden", default: "product"}
-      - {label: "Publikasi", name: "published", widget: "boolean", default: true}
-      - {label: "Judul", name: "title", widget: "string"}
-      - {label: "Tanggal", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm"}
-      - {label: "Thumbnail", name: "thumbnail", widget: "image"}
-      - {label: "Kategori", name: "category", widget: "string"}
-      - {label: "Tag", name: "tag", widget: "list", hint: "Pisahkan dengan koma"}
-      - {label: "Konten", name: "body", widget: "markdown"}
   - label: "Blog"
     name: "blog"
     identifier_field: name
@@ -68,3 +51,37 @@ collections:
       - {label: "Kategori", name: "category", widget: "string"}
       - {label: "Tag", name: "tag", widget: "list", hint: "Pisahkan dengan koma"}
       - {label: "Konten", name: "body", widget: "markdown"}
+  - label: "Produk"
+    name: "product"
+    identifier_field: name
+    folder: "_posts/product"
+    media_folder: "../../assets/upload/product"
+    public_folder: "/assets/upload/product"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template", name: "layout", widget: "hidden", default: "product"}
+      - {label: "Tanggal", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm"}
+      - {label: "Publikasi", name: "published", widget: "boolean", default: true}
+      - {label: "Judul", name: "title", widget: "string"}
+      - label: "Harga"
+        name: "price"
+        widget: "object"
+        allow_add: false
+        minimize_collapsed: true
+        summary: "{{fields.reguler}} · {{fields.promo}}"
+        fields:
+          - {label: "Harga Reguler", name: "reguler", widget: "number"}
+          - {label: "Harga Promo", name: "promo", widget: "number", hint: "Kosongi jika tidak ada promo", required: false}
+      - {label: "Stok", name: "stock", widget: "select", options: ["Ada Stok", "Stok Habis"], default: "Ada Stok"}
+      - {label: "Atribut", name: "attribute", widget: "select", options: ["Terlaris", "Baru", "Tanpa Atribut"], default: "Tanpa Atribut"}
+      - {label: "Kategori", name: "category", widget: "string"}
+      - {label: "Foto Utama", name: "thumbnail", widget: "image"}
+      - label: "Foto Lainnya"
+        name: "photos"
+        widget: "list"
+        minimize_collapsed: true
+        fields:
+          - {label: "Foto Produk", name: "photo", widget: "image"}
+      - {label: "Deskripsi", name: "body", widget: "markdown"}
+      - {label: "Tag", name: "tag", widget: "list", hint: "Pisahkan dengan koma"}
