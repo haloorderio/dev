@@ -49,6 +49,9 @@ header nav li > * {
 	left: auto;
 	right: 0;
 }
+[class*="ToolbarSubSectionFirst"] [role="menu"] > ul {
+	min-width: 220px;
+}
 
 [class*="AppHeaderNavList"] > li:not(:first-child) {
 	display: none;
@@ -127,6 +130,7 @@ header nav li > * {
 	padding: 0;
 	border: none;
 	text-align: right;
+	padding-top: 20px;
 	padding-right: 70px;
 }
 [for*="published-field"] + div button:before {
@@ -252,12 +256,20 @@ header nav li > * {
 		background-color: #f7f7f7;
 		padding: 1rem;
 	}
-	[class*="ToolbarSectionBackLink"] > div:last-child,
-	[class*="ToolbarSubSectionLast"] {
+	[class*="ToolbarSectionBackLink"] > div:last-child {
 		display: none;
 	}
 	[class*="ToolbarSectionMain"] {
+		flex-direction: row;
 		padding: .6rem;
+	}
+	[class*="ToolbarSubSectionLast"] [class*="IconWrapper"] {
+		width: 16px;
+		height: 16px;
+		margin: 0 0 0 .5rem;
+	}
+	[class*="ToolbarSubSectionLast"] a > span:first-child {
+		display: none;
 	}
 
 	.css-1iwq7gj-GridCard-card {
