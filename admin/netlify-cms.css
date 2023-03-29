@@ -35,7 +35,8 @@ input[type=number] {
 }
 [class*="CollectionTopContainer-card-cardTop"],
 [class*="CollectionControlsContainer"],
-[class*="ListCard-card"] {
+[class*="ListCard-card"],
+[class*="SearchResultContainer"] {
 	width: 100%;
 }
 [class*="CardsGrid"] {

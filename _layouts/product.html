@@ -3,36 +3,78 @@ layout: default
 ---
 
 <section class="max-w-6xl mx-auto px-5 lg:px-10 py-4">
-	<div class="sm:flex">
-		<div class="w-full">
-			<h1 class="text-2xl md:text-3xl lg:text-4xl">{{ page.title }}</h1>
-			<p>Kategori: {{ page.category }}</p>
-			<p>Kategori: {{ page.category }}</p>
-		</div>
-		<div class="w-full">
+	<div class="md:float-right md:w-80">
+		{% if page.thumbnail %}
+		<picture class="skeleton">
+			<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-cover" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+		</picture>
+		{% endif %}
+
+		{% if page.photos %}
+			{% for image in page.photos %}
 			<picture class="skeleton">
-				<img src="https://images.unsplash.com/photo-1576675466684-456bcdeccfbf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600&q=80" alt="Banner" class="w-full h-full object-cover" width="600" height="600" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+				<img src="{{ image.photo }}" alt="{{ page.title }}" class="w-full h-full object-cover" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 			</picture>
+			{% endfor %}
+		{% endif %}
+	</div>
+	<div class="md:mr-80 md:pr-8">
+		<h1 class="text-2xl md:text-3xl lg:text-4xl">
+			{{ page.title }}
+		</h1>
+
+		{% if page.price %}
+		<div class="my-3">
+			<strong>Harga</strong>
+			{% if page.price.promo %}
+				<del>{{ page.price.regular }}</del>
+				<span>{{ page.price.promo }}</span>
+				<small>Diskon {{ page.price.promo | divided_by: page.price.regular | times: 100 | round }}%</small>
+			{% else %}
+				<span>{{ page.price.regular }}</span>
+			{% endif %}
+		</div>
+		{% endif %}
+
+		{% if page.stock == "Stok Habis" %}
+		<div class="my-3">
+			<strong>Stok</strong>
+			<span>{{ page.stock }}</span>
+		</div>
+		{% endif %}
+
+		{% if page.attribute != "Tanpa Atribut" %}
+		<div class="my-3">
+			<strong>Atribut</strong>
+			<span>{{ page.attribute }}</span>
+		</div>
+		{% endif %}
+
+		{% if page.category %}
+		<div class="my-3">
+			<strong>Kategori</strong>
+			<span>{{ page.category }}</span>
+		</div>
+		{% endif %}
+
+		{% if page.tags %}
+		<div class="my-3">
+			<strong>Tag</strong>
+			{% for tag in page.tags %}
+				<span>{{ tag }}</span>
+				{% if forloop.last == false %}
+					,
+				{% endif %}
+			{% endfor %}
+		</div>
+		{% endif %}
+
+		<div class="prose dark:prose-invert">
+			{{ content }}
 		</div>
 	</div>
-	<div class="prose dark:prose-invert">
-		{{ content }}
-	</div>
-	<div>
-		tag
-	</div>
 
-<!-- Admin
-- judul
-- stok (toggle switch stok ada/habis)
-- harga
-- harga promo (ada toggle switch utk munculkan field)
-- atribut: terlaris, baru, tanpa atribut
-- foto produk (max 6, format jpg jpeg png)
-- kategori produk
-- tag
-- deskripsi
-
+<!-- 
 Public
 - stok habis berupa badge
 - atribut berupa badge

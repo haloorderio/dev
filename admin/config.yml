@@ -49,7 +49,7 @@ collections:
       - {label: "Tanggal", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
       - {label: "Kategori", name: "category", widget: "string"}
-      - {label: "Tag", name: "tag", widget: "list", hint: "Pisahkan dengan koma"}
+      - {label: "Tag", name: "tags", widget: "list", hint: "Pisahkan dengan koma"}
       - {label: "Konten", name: "body", widget: "markdown"}
   - label: "Produk"
     name: "product"
@@ -69,9 +69,9 @@ collections:
         widget: "object"
         allow_add: false
         minimize_collapsed: true
-        summary: "Rp {{fields.reguler}} · Diskon Rp {{fields.promo}}"
+        summary: "Rp {{fields.regular}} · Diskon Rp {{fields.promo}}"
         fields:
-          - {label: "Harga Reguler", name: "reguler", widget: "string"}
+          - {label: "Harga Reguler", name: "regular", widget: "string"}
           - {label: "Harga Promo", name: "promo", widget: "string", hint: "Kosongi jika tidak ada promo", required: false}
       - {label: "Stok", name: "stock", widget: "select", options: ["Ada Stok", "Stok Habis"], default: "Ada Stok"}
       - {label: "Atribut", name: "attribute", widget: "select", options: ["Terlaris", "Baru", "Tanpa Atribut"], default: "Tanpa Atribut"}
@@ -84,4 +84,4 @@ collections:
         fields:
           - {label: "Foto Produk", name: "photo", widget: "image"}
       - {label: "Deskripsi", name: "body", widget: "markdown"}
-      - {label: "Tag", name: "tag", widget: "list", hint: "Pisahkan dengan koma"}
+      - {label: "Tag", name: "tags", widget: "list", hint: "Pisahkan dengan koma"}
