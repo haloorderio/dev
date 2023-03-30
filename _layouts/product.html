@@ -35,11 +35,11 @@ layout: default
 				{% assign regular = page.price.regular | remove: "." %}
 				{% assign promo = page.price.promo | remove: "." %}
 
-				{% assign price_regular = regular | append: "00" | money: "IDR" | remove: "Rp" | remove: ",00" %}
-				<del>Rp {{ price_regular }}</del>
+				{% assign price_regular = regular %}
+				<del>Rp <span class="money">{{ price_regular }}</span></del>
 
-				{% assign price_promo = promo | append: "00" | money: "IDR" | remove: "Rp" | remove: ",00" %}
-				<span>Rp {{ price_promo }}</span>
+				{% assign price_promo = promo %}
+				<span>Rp <span class="money">{{ price_promo }}</span></span>
 
 				{% assign float_regular = regular | times: 1.0 %}
 				{% assign float_promo = promo | times: 1.0 %}
@@ -61,12 +61,12 @@ layout: default
 				<small>Diskon {{ discount }}%</small>
 
 				{% assign saving = regular | minus: promo %}
-				{% assign price_saving = saving | append: "00" | money: "IDR" | remove: "Rp" | remove: ",00" %}
-				<span>Hemat Rp {{ price_saving }}</span>
+				{% assign price_saving = saving %}
+				<span>Hemat Rp <span class="money">{{ price_saving }}</span></span>
 			{% else %}
 				{% assign regular = page.price.regular | remove: "." %}
-				{% assign price_regular = regular | append: "00" | money: "IDR" | remove: "Rp" | remove: ",00" %}
-				<span>Rp {{ price_regular }}</span>
+				{% assign price_regular = regular %}
+				<span>Rp <span class="money">{{ price_regular }}</span></span>
 			{% endif %}
 		</div>
 		{% endif %}
@@ -108,7 +108,6 @@ layout: default
 			{{ content }}
 		</div>
 	</div>
-
 <!-- 
 Public
 - stok habis berupa badge
