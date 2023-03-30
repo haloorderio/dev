@@ -20,7 +20,7 @@ keywords: lorem, ipsum, et, dolor, commodo, incididunt, mollit
 #----------------------------
 
 # Subpath of your site, e.g. /blog
-baseurl: 
+# baseurl: 
 
 # Specifies the language of website, e.g. en_US
 # Leave blank if you want to id_ID
