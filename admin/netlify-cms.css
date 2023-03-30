@@ -257,20 +257,13 @@ header nav li > * {
 		background-color: #f7f7f7;
 		padding: 1rem;
 	}
+	[class*="ToolbarSubSectionLast"],
 	[class*="ToolbarSectionBackLink"] > div:last-child {
 		display: none;
 	}
 	[class*="ToolbarSectionMain"] {
 		flex-direction: row;
 		padding: .6rem;
-	}
-	[class*="ToolbarSubSectionLast"] [class*="IconWrapper"] {
-		width: 16px;
-		height: 16px;
-		margin: 0 0 0 .5rem;
-	}
-	[class*="ToolbarSubSectionLast"] a > span:first-child {
-		display: none;
 	}
 
 	.css-1iwq7gj-GridCard-card {

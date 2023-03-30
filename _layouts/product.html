@@ -2,23 +2,28 @@
 layout: default
 ---
 
-<section class="max-w-6xl mx-auto px-5 lg:px-10 py-4">
-	<div class="md:float-right md:w-80">
-		{% if page.thumbnail %}
-		<picture class="skeleton">
-			<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-cover" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
-		</picture>
-		{% endif %}
-
+<section class="max-lg:max-w-lg max-w-6xl mx-auto lg:px-10 lg:py-4">
+	<div class="lg:float-right lg:w-80">
 		{% if page.photos %}
+			{% if page.thumbnail %}
+			<picture class="skeleton">
+				<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-cover" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+			</picture>
+			{% endif %}
 			{% for image in page.photos %}
 			<picture class="skeleton">
 				<img src="{{ image.photo }}" alt="{{ page.title }}" class="w-full h-full object-cover" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 			</picture>
 			{% endfor %}
+		{% else %}
+			{% if page.thumbnail %}
+			<picture class="skeleton">
+				<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-cover" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+			</picture>
+			{% endif %}
 		{% endif %}
 	</div>
-	<div class="md:mr-80 md:pr-8">
+	<div class="lg:mr-80 lg:pr-8">
 		<h1 class="text-2xl md:text-3xl lg:text-4xl">
 			{{ page.title }}
 		</h1>
@@ -27,11 +32,41 @@ layout: default
 		<div class="my-3">
 			<strong>Harga</strong>
 			{% if page.price.promo %}
-				<del>{{ page.price.regular }}</del>
-				<span>{{ page.price.promo }}</span>
-				<small>Diskon {{ page.price.promo | divided_by: page.price.regular | times: 100 | round }}%</small>
+				{% assign regular = page.price.regular | remove: "." %}
+				{% assign promo = page.price.promo | remove: "." %}
+
+				{% assign price_regular = regular | append: "00" | money: "IDR" | remove: "Rp" | remove: ",00" %}
+				<del>Rp {{ price_regular }}</del>
+
+				{% assign price_promo = promo | append: "00" | money: "IDR" | remove: "Rp" | remove: ",00" %}
+				<span>Rp {{ price_promo }}</span>
+
+				{% assign float_regular = regular | times: 1.0 %}
+				{% assign float_promo = promo | times: 1.0 %}
+				{% assign decimal = float_promo | divided_by: float_regular | times: 100 %}
+				{% assign decimal_split = decimal | split: '.' %}
+				{% assign fix_decimal = decimal | minus: 100 | remove: "-" %}
+				{% assign fix_decimal_split = decimal_split[0] | minus: 100 | remove: "-" %}
+
+				{% if decimal_split[1] == "0" %}
+					{% assign discount = fix_decimal_split %}
+				{% else %}
+					{% if decimal_split[1].size <= 2 %}
+						{% assign discount = fix_decimal %}
+					{% else %}
+						{% assign discount = fix_decimal | slice: 0,5 %}
+					{% endif %}
+				{% endif %}
+
+				<small>Diskon {{ discount }}%</small>
+
+				{% assign saving = regular | minus: promo %}
+				{% assign price_saving = saving | append: "00" | money: "IDR" | remove: "Rp" | remove: ",00" %}
+				<span>Hemat Rp {{ price_saving }}</span>
 			{% else %}
-				<span>{{ page.price.regular }}</span>
+				{% assign regular = page.price.regular | remove: "." %}
+				{% assign price_regular = regular | append: "00" | money: "IDR" | remove: "Rp" | remove: ",00" %}
+				<span>Rp {{ price_regular }}</span>
 			{% endif %}
 		</div>
 		{% endif %}
@@ -62,9 +97,9 @@ layout: default
 			<strong>Tag</strong>
 			{% for tag in page.tags %}
 				<span>{{ tag }}</span>
-				{% if forloop.last == false %}
+				{%- if forloop.last == false -%}
 					,
-				{% endif %}
+				{%- endif -%}
 			{% endfor %}
 		</div>
 		{% endif %}
