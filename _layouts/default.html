@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'id-ID' }}">
 <head>
-	{% if page.title %}
+	{% if page.title -%}
 	<title>{{ page.title }} - {{ site.title }}</title>
-	{% else %}
+	{%- else %}
 	<title>{{ site.title }}</title>
-	{% endif %}
+	{%- endif %}
 
 	{% include meta.html %}
 
@@ -19,6 +19,10 @@
 	<link rel="stylesheet" href="{{ '/assets/css/font.css' | relative_url }}{% if site.version %}?v={{ site.version }}{% endif %}" />
 	<link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | relative_url }}{% if site.version %}?v={{ site.version }}{% endif %}" />
 	<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}{% if site.version %}?v={{ site.version }}{% endif %}" />
+
+	{%- if page.layout == 'product' %}
+	<link rel="stylesheet" href="{{ '/assets/css/splide.min.css' | relative_url }}" />
+	{%- endif %}
 
 	<!-- Development -->
 	<link rel="stylesheet" href="{{ 'tailwind.css' | relative_url }}" />
@@ -35,9 +39,12 @@
 </main>
 
 <slot>
+	{%- if page.layout == 'product' %}
+	<script src="{{ '/assets/js/splide.min.js' | relative_url }}"></script>
+	{%- endif %}
 	<script src="{{ '/assets/js/main.js' | relative_url }}{% if site.version %}?v={{ site.version }}{% endif %}"></script>
 
-	{% include gtm.html %}
+	{%- include google_tag_manager.html %}
 </slot>
 
 			</div>

@@ -20,7 +20,7 @@ keywords: lorem, ipsum, et, dolor, commodo, incididunt, mollit
 #----------------------------
 
 # Subpath of your site, e.g. /blog
-# baseurl: 
+baseurl: 
 
 # Specifies the language of website, e.g. en_US
 # Leave blank if you want to id_ID
@@ -28,13 +28,13 @@ lang:
 
 # Theme color for browser tab on mobile, e.g. #265FF3
 # Leave blank if you want to #fff
-tabcolor: 
+tab_color: 
 
 # Step version of media assets with date (ISO 8601, UTC format) with quotes, e.g. "2023-12-31T23:59:59+07:00"
 version: 
 
 # Google Tag Manager web tracking code, e.g. G-TK69RB8KDF
-gtm: 
+google_tag_manager: 
 
 #----------------------------
 # System Configs
