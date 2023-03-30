@@ -47,7 +47,6 @@ permalink: /:title/
 plugins:
   - jekyll-postcss
   - jekyll-sitemap
-  - jekyll-money2
 
 # Set the Sass partials directory, as we're using @imports
 sass:
