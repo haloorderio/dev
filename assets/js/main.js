@@ -10,3 +10,5 @@ function numberWithCommas(x) {
 document.querySelectorAll('.money').forEach(item => {
 	item.innerHTML = numberWithCommas(item.innerHTML)
 })
+
+new Splide('.splide').mount()

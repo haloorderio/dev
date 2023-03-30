@@ -5,16 +5,26 @@ layout: default
 <section class="max-lg:max-w-lg max-w-6xl mx-auto lg:px-10 lg:py-4">
 	<div class="lg:float-right lg:w-80">
 		{% if page.photos %}
-			{% if page.thumbnail %}
-			<picture class="skeleton">
-				<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-cover" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
-			</picture>
-			{% endif %}
-			{% for image in page.photos %}
-			<picture class="skeleton">
-				<img src="{{ image.photo }}" alt="{{ page.title }}" class="w-full h-full object-cover" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
-			</picture>
-			{% endfor %}
+			<section class="splide" aria-label="Splide Basic HTML Example">
+				<div class="splide__track">
+					<ul class="splide__list">
+						{% if page.thumbnail %}
+						<li class="splide__slide">
+							<picture class="skeleton">
+								<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-cover" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+							</picture>
+						</li>
+						{% endif %}
+						{% for image in page.photos %}
+						<li class="splide__slide">
+							<picture class="skeleton">
+								<img src="{{ image.photo }}" alt="{{ page.title }}" class="w-full h-full object-cover" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+							</picture>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</section>
 		{% else %}
 			{% if page.thumbnail %}
 			<picture class="skeleton">
