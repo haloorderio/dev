@@ -13,6 +13,7 @@ module.exports = {
         'color-1': 'rgb(var(--color-1) / <alpha-value>)',
         'color-2': 'rgb(var(--color-2) / <alpha-value>)',
         'color-3': 'rgb(var(--color-3) / <alpha-value>)',
+        'color-4': 'rgb(var(--color-4) / <alpha-value>)',
       },
       fontFamily: {
         'theme-1': ['var(--font-1)'],

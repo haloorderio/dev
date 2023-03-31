@@ -2,128 +2,154 @@
 layout: default
 ---
 
-<section class="max-lg:max-w-lg max-w-6xl mx-auto lg:px-10 lg:py-4 lg:flex">
-	<div class="lg:w-4/5 lg:order-2">
-		{% if page.photos %}
-			<section class="splide lg:sticky lg:top-4" data-splide='{"pagination":false}'>
-				<div class="splide__track">
-					<ul class="splide__list">
-						{% if page.thumbnail %}
-						<li class="splide__slide">
-							<picture class="skeleton">
-								<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
-							</picture>
-						</li>
-						{% endif %}
-						{% for image in page.photos %}
-						<li class="splide__slide">
-							<picture class="skeleton">
-								<img src="{{ image.photo }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
-							</picture>
-						</li>
-						{% endfor %}
-					</ul>
-				</div>
+<section class="max-lg:max-w-lg max-w-6xl mx-auto lg:px-10 lg:py-6 lg:flex">
+		<div class="lg:w-4/5 lg:order-2">
+			<div class="sticky top-4">
+				{%- if page.photos %}
+					<section class="splide product-image {% if page.stock == 'Stok Habis' %}grayscale{% endif %}">
+						<div class="splide__track">
+							<ul class="splide__list">
+								{%- if page.thumbnail %}
+								<li class="splide__slide">
+									<picture class="skeleton">
+										<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+									</picture>
+								</li>
+								{%- endif %}
+								{%- for image in page.photos %}
+								<li class="splide__slide">
+									<picture class="skeleton">
+										<img src="{{ image.photo }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+									</picture>
+								</li>
+								{%- endfor %}
+							</ul>
+						</div>
+					</section>
+				{%- else %}
+					{%- if page.thumbnail %}
+					<section class="product-image {% if page.stock == 'Stok Habis' %}grayscale{% endif %}">
+						<picture class="skeleton">
+							<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+						</picture>
+					</section>
+					{%- endif %}
+				{%- endif %}
+
+				<section class="product-cart-add max-lg:hidden">
+					<button type="button" class="button" {% if page.stock == "Stok Habis" %}disabled{% endif %}>
+						Masukkan Ke Keranjang
+					</button>
+				</section>
+			</div>
+		</div>
+		<div class="max-lg:px-6 max-lg:py-8 lg:w-full lg:order-1 lg:pr-8">
+			<section class="mb-4">
+				{%- if page.attribute != "Tanpa Atribut" %}
+				<section class="product-attribute mr-2">
+					<span>{{ page.attribute }}</span>
+				</section>
+				{%- endif %}
+
+				{%- if page.category %}
+				<section class="product-category">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline w-5 h-5 -mt-1">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
+					</svg>
+					<span>{{ page.category }}</span>
+				</section>
+				{% endif -%}
 			</section>
-		{% else %}
-			{% if page.thumbnail %}
-			<picture class="skeleton">
-				<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
-			</picture>
-			{% endif %}
-		{% endif %}
-	</div>
-	<div class="lg:w-full lg:order-1 lg:pr-8">
-		<h1 class="text-2xl md:text-3xl lg:text-4xl">
-			{{ page.title }}
-		</h1>
 
-		{% if page.price %}
-		<div class="my-3">
-			<strong>Harga</strong>
-			{% if page.price.promo %}
-				{% assign regular = page.price.regular | remove: "." %}
-				{% assign promo = page.price.promo | remove: "." %}
+			<section class="product-title">
+				<h1>{{ page.title }}</h1>
 
-				{% assign price_regular = regular %}
-				<del>Rp <span class="money">{{ price_regular }}</span></del>
+				{% if page.stock == "Stok Habis" %}
+				<div class="product-stock">
+					{{ page.stock }}
+				</div>
+				{% endif -%}
+			</section>
 
-				{% assign price_promo = promo %}
-				<span>Rp <span class="money">{{ price_promo }}</span></span>
+			{% if page.price -%}
+			<section class="product-price">
+				{%- if page.price.promo %}
+					{%- assign regular = page.price.regular | remove: "." %}
+					{%- assign promo = page.price.promo | remove: "." %}
 
-				{% assign float_regular = regular | times: 1.0 %}
-				{% assign float_promo = promo | times: 1.0 %}
-				{% assign decimal = float_promo | divided_by: float_regular | times: 100 %}
-				{% assign decimal_split = decimal | split: '.' %}
-				{% assign fix_decimal = decimal | minus: 100 | remove: "-" %}
-				{% assign fix_decimal_split = decimal_split[0] | minus: 100 | remove: "-" %}
+					<div class="flex items-center gap-2 my-1">
+						{%- assign price_promo = promo %}
+						<div class="current">
+							Rp <span class="currency">{{ price_promo }}</span>
+						</div>
 
-				{% if decimal_split[1] == "0" %}
-					{% assign discount = fix_decimal_split %}
-				{% else %}
-					{% if decimal_split[1].size <= 2 %}
-						{% assign discount = fix_decimal %}
-					{% else %}
-						{% assign discount = fix_decimal | slice: 0,5 %}
-					{% endif %}
-				{% endif %}
+						{%- assign float_regular = regular | times: 1.0 %}
+						{%- assign float_promo = promo | times: 1.0 %}
+						{%- assign decimal = float_promo | divided_by: float_regular | times: 100 %}
+						{%- assign decimal_split = decimal | split: '.' %}
+						{%- assign fix_decimal = decimal | minus: 100 | remove: "-" %}
+						{%- assign fix_decimal_split = decimal_split[0] | minus: 100 | remove: "-" %}
 
-				<small>Diskon {{ discount }}%</small>
+						{%- if decimal_split[1] == "0" %}
+							{%- assign discount = fix_decimal_split %}
+						{%- else %}
+							{%- if decimal_split[1].size <= 2 %}
+								{%- assign discount = fix_decimal %}
+							{%- else %}
+								{%- assign discount = fix_decimal | slice: 0,5 %}
+							{%- endif %}
+						{%- endif %}
 
-				{% assign saving = regular | minus: promo %}
-				{% assign price_saving = saving %}
-				<span>Hemat Rp <span class="money">{{ price_saving }}</span></span>
-			{% else %}
-				{% assign regular = page.price.regular | remove: "." %}
-				{% assign price_regular = regular %}
-				<span>Rp <span class="money">{{ price_regular }}</span></span>
-			{% endif %}
+						<div class="discount">
+							Diskon <span>{{ discount }}%</span>
+						</div>
+					</div>
+
+					<div class="flex items-center gap-2 my-1">
+						{%- assign price_regular = regular %}
+						<div class="line-through past -ml-1">
+							&nbsp;Rp <span class="currency">{{ price_regular }}</span>&nbsp;
+						</div>
+
+						{%- assign saving = regular | minus: promo %}
+						{%- assign price_saving = saving %}
+						<div class="saving">
+							Kamu hemat Rp <span class="currency">{{ price_saving }}</span>
+						</div>
+					</div>
+				{%- else %}
+					{%- assign regular = page.price.regular | remove: "." %}
+					{%- assign price_regular = regular %}
+					<div class="current">
+						Rp <span class="currency">{{ price_regular }}</span>
+					</div>
+				{%- endif %}
+			</section>
+			{% endif -%}
+
+			<section class="product-cart-add lg:hidden">
+				<button type="button" class="button" {% if page.stock == "Stok Habis" %}disabled{% endif %}>
+					Masukkan Ke Keranjang
+				</button>
+			</section>
+
+			<section class="product-description">
+				{{ content }}
+			</section>
+
+			{% if page.tags %}
+			<section class="product-tag">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline w-5 h-5 -mt-px">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
+				</svg>
+				{% for tag in page.tags %}
+					<span>{{ tag }}</span>
+					{%- if forloop.last == false -%}
+						,
+					{%- endif -%}
+				{% endfor %}
+			</section>
+			{%- endif %}
 		</div>
-		{% endif %}
-
-		{% if page.stock == "Stok Habis" %}
-		<div class="my-3">
-			<strong>Stok</strong>
-			<span>{{ page.stock }}</span>
-		</div>
-		{% endif %}
-
-		{% if page.attribute != "Tanpa Atribut" %}
-		<div class="my-3">
-			<strong>Atribut</strong>
-			<span>{{ page.attribute }}</span>
-		</div>
-		{% endif %}
-
-		{% if page.category %}
-		<div class="my-3">
-			<strong>Kategori</strong>
-			<span>{{ page.category }}</span>
-		</div>
-		{% endif %}
-
-		{% if page.tags %}
-		<div class="my-3">
-			<strong>Tag</strong>
-			{% for tag in page.tags %}
-				<span>{{ tag }}</span>
-				{%- if forloop.last == false -%}
-					,
-				{%- endif -%}
-			{% endfor %}
-		</div>
-		{% endif %}
-
-		<div class="prose dark:prose-invert">
-			{{ content }}
-		</div>
-	</div>
-<!-- 
-Public
-- stok habis berupa badge
-- atribut berupa badge
-- promo berupa badge, ada diskon dalam persen
-- foto produk berupa slider, bisa zoom in out
-- buat cart, ada pilihan ekspedisi & metode pembayaran, checkout ke wa, dan input ke gsheet -->
-
-</section>
+	</section>

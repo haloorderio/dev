@@ -7,10 +7,13 @@
 function numberWithCommas(x) {
 	return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")
 }
-document.querySelectorAll('.money').forEach(item => {
-	item.innerHTML = numberWithCommas(item.innerHTML)
+document.querySelectorAll('.currency').forEach(item => {
+	let currency = numberWithCommas(item.innerHTML)
+	item.innerHTML = currency
 })
 
 for (let i=0; i<document.getElementsByClassName('splide').length; i++) {
-	new Splide('.splide').mount()
+	new Splide('.splide', {
+		pagination: false,
+	}).mount()
 }

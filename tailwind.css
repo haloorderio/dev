@@ -10,9 +10,10 @@
 		--font-1: 'DM Sans', sans-serif;
 		/* --font-2: 'Kalam', cursive; */
 
-		--color-1: 255 148 63;	/* #ff943f - Orange */
-		--color-2: 233 115 3;	/* #e97303 - Dark Orange */
-		--color-3: 250 204 21;	/* #facc15 - Yellow */
+		--color-1: 53 147 255;	/* #3593ff - Blue */
+		--color-2: 32 123 227;	/* #207be3 - Dark Blue */
+		--color-3: 255 148 63;	/* #e97303 - Dark Orange */
+		--color-4: 255 148 63;	/* #e97303 - Dark Orange */
 	}
 
 	* {
@@ -117,6 +118,50 @@
 		100% {
 			background-color: hsl(200, 10%, 45%);
 		}
+	}
+
+	.button {
+		@apply flex justify-center no-underline w-full h-full rounded-lg shadow-xl py-3 px-4 md:px-6 font-medium text-white hover:text-white bg-color-1 hover:bg-color-2 focus-visible:outline-none disabled:pointer-events-none disabled:text-zinc-400 disabled:bg-zinc-200 disabled:hover:bg-zinc-200 [&.disabled]:pointer-events-none [&.disabled]:text-zinc-400 [&.disabled]:bg-zinc-200 [&.disabled]:hover:bg-zinc-200;
+	}
+
+	.product-image {
+		@apply max-lg:border-b lg:shadow-xl lg:rounded-lg lg:overflow-hidden;
+	}
+	.product-title {
+		@apply mb-4;
+	}
+	.product-title h1 {
+		@apply text-2xl md:text-3xl lg:text-4xl lg:inline;
+	}
+	.product-price .past {
+		@apply opacity-50;
+	}
+	.product-price .current {
+		@apply text-2xl lg:text-3xl font-bold text-emerald-500;
+	}
+	.product-price .discount {
+		@apply bg-amber-500 text-white inline py-1 px-2 rounded-md text-xs [&_span]:font-bold;
+	}
+	.product-price .saving {
+		@apply bg-slate-100 inline py-1 px-2 rounded-md text-xs [&_span]:font-bold;
+	}
+	.product-attribute span {
+		@apply bg-color-1 text-white inline py-1 px-2 rounded-md text-xs font-bold uppercase tracking-widest;
+	}
+	.product-description {
+		@apply prose dark:prose-invert my-6;
+	}
+	.product-attribute {
+		@apply inline-block align-top;
+	}
+	.product-category {
+		@apply inline-block pt-px;
+	}
+	.product-stock {
+		@apply bg-rose-500 text-white inline py-1 px-2 rounded-md text-xs font-bold uppercase tracking-widest max-lg:my-1 lg:inline lg:align-super lg:ml-2;
+	}
+	.product-cart-add {
+		@apply my-8 lg:my-6;
 	}
 }
 
