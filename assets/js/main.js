@@ -11,4 +11,6 @@ document.querySelectorAll('.money').forEach(item => {
 	item.innerHTML = numberWithCommas(item.innerHTML)
 })
 
-new Splide('.splide').mount()
+for (let i=0; i<document.getElementsByClassName('splide').length; i++) {
+	new Splide('.splide').mount()
+}

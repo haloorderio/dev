@@ -2,23 +2,23 @@
 layout: default
 ---
 
-<section class="max-lg:max-w-lg max-w-6xl mx-auto lg:px-10 lg:py-4">
-	<div class="lg:float-right lg:w-80">
+<section class="max-lg:max-w-lg max-w-6xl mx-auto lg:px-10 lg:py-4 lg:flex">
+	<div class="lg:w-4/5 lg:order-2">
 		{% if page.photos %}
-			<section class="splide" aria-label="Splide Basic HTML Example">
+			<section class="splide lg:sticky lg:top-4" data-splide='{"pagination":false}'>
 				<div class="splide__track">
 					<ul class="splide__list">
 						{% if page.thumbnail %}
 						<li class="splide__slide">
 							<picture class="skeleton">
-								<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-cover" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+								<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 							</picture>
 						</li>
 						{% endif %}
 						{% for image in page.photos %}
 						<li class="splide__slide">
 							<picture class="skeleton">
-								<img src="{{ image.photo }}" alt="{{ page.title }}" class="w-full h-full object-cover" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+								<img src="{{ image.photo }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 							</picture>
 						</li>
 						{% endfor %}
@@ -28,12 +28,12 @@ layout: default
 		{% else %}
 			{% if page.thumbnail %}
 			<picture class="skeleton">
-				<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-cover" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+				<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 			</picture>
 			{% endif %}
 		{% endif %}
 	</div>
-	<div class="lg:mr-80 lg:pr-8">
+	<div class="lg:w-full lg:order-1 lg:pr-8">
 		<h1 class="text-2xl md:text-3xl lg:text-4xl">
 			{{ page.title }}
 		</h1>

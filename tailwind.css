@@ -119,3 +119,9 @@
 		}
 	}
 }
+
+@layer utilities {
+	.aspect-square {
+		aspect-ratio: 1 / 1;
+	}
+}

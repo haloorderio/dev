@@ -14,6 +14,10 @@ description: Lorem ipsum qui elit in adipisicing in sint adipisicing commodo occ
 # Keywords for search engine crawling & separate with comma, e.g. lorem, ipsum, dolor, commodo
 keywords: lorem, ipsum, et, dolor, commodo, incididunt, mollit
 
+# What collections do you want to show, value is true or false
+content_pages: false
+content_blogs: false
+content_products: true
 
 #----------------------------
 # Optional Configs

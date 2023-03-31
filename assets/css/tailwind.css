@@ -1222,6 +1222,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(244 244 245 / var(--tw-bg-opacity));
 }
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -1229,10 +1233,17 @@ select {
 .p-5 {
   padding: 1.25rem;
 }
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
 }
+.aspect-square {
+		aspect-ratio: 1 / 1;
+	}
 
 .dark .dark\:prose-invert {
   --tw-prose-body: var(--tw-prose-invert-body);
@@ -1263,8 +1274,36 @@ select {
 
 @media not all and (min-width: 1024px) {
 
+  .max-lg\:fixed {
+    position: fixed;
+  }
+
+  .max-lg\:h-screen {
+    height: 100vh;
+  }
+
+  .max-lg\:w-screen {
+    width: 100vw;
+  }
+
   .max-lg\:max-w-lg {
     max-width: 32rem;
+  }
+
+  .max-lg\:overflow-auto {
+    overflow: auto;
+  }
+
+  .max-lg\:overflow-hidden {
+    overflow: hidden;
+  }
+
+  .max-lg\:overflow-x-hidden {
+    overflow-x: hidden;
+  }
+
+  .max-lg\:pb-\[6\.7rem\] {
+    padding-bottom: 6.7rem;
   }
 }
 
@@ -1305,6 +1344,22 @@ select {
 
 @media (min-width: 1024px) {
 
+  .lg\:sticky {
+    position: sticky;
+  }
+
+  .lg\:top-4 {
+    top: 1rem;
+  }
+
+  .lg\:order-1 {
+    order: 1;
+  }
+
+  .lg\:order-2 {
+    order: 2;
+  }
+
   .lg\:float-right {
     float: right;
   }
@@ -1313,8 +1368,36 @@ select {
     margin-right: 20rem;
   }
 
+  .lg\:mr-96 {
+    margin-right: 24rem;
+  }
+
+  .lg\:flex {
+    display: flex;
+  }
+
   .lg\:w-80 {
     width: 20rem;
+  }
+
+  .lg\:w-96 {
+    width: 24rem;
+  }
+
+  .lg\:w-2\/5 {
+    width: 40%;
+  }
+
+  .lg\:w-full {
+    width: 100%;
+  }
+
+  .lg\:w-3\/5 {
+    width: 60%;
+  }
+
+  .lg\:w-4\/5 {
+    width: 80%;
   }
 
   .lg\:px-10 {
