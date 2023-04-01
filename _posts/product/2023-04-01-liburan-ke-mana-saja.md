@@ -1,7 +1,7 @@
 ---
 layout: product
 date: 2023-04-01 15:13
-published: false
+published: true
 title: Liburan ke Mana Saja
 price:
   regular: 13000000
