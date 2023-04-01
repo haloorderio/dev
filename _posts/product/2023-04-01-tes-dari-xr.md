@@ -1,7 +1,7 @@
 ---
 layout: product
 date: 2023-04-01 18:34
-published: true
+published: false
 title: Tes dari xr
 price:
   regular: 4500
