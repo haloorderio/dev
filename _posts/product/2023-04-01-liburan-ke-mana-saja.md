@@ -15,6 +15,7 @@ photos:
   - photo: /assets/upload/product/c1e79d0a-e2e2-4380-8bea-24a03c9a3857.jpeg
 tags:
   - asik
+  - uye
 ---
 Pusing dengan segala rutinitas yang ada?
 
