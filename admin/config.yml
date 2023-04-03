@@ -33,7 +33,7 @@ collections:
       - {label: "Publikasi", name: "published", widget: "boolean", default: true}
       - {label: "Judul", name: "title", widget: "string"}
       - {label: "Konten", name: "body", widget: "markdown"}
-      - {label: "Tanggal", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm"}
+      - {label: "Tanggal", name: "date", widget: "datetime"}
   - label: "Blog"
     name: "blog"
     identifier_field: name
@@ -46,11 +46,11 @@ collections:
       - {label: "Template", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Publikasi", name: "published", widget: "boolean", default: true}
       - {label: "Judul", name: "title", widget: "string"}
-      - {label: "Tanggal", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
       - {label: "Kategori", name: "category", widget: "string"}
       - {label: "Tag", name: "tags", widget: "list", hint: "Pisahkan dengan koma"}
       - {label: "Konten", name: "body", widget: "markdown"}
+      - {label: "Tanggal", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm"}
   - label: "Produk"
     name: "product"
     identifier_field: name
@@ -61,7 +61,6 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template", name: "layout", widget: "hidden", default: "product"}
-      - {label: "Tanggal", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm"}
       - {label: "Publikasi", name: "published", widget: "boolean", default: true}
       - {label: "Judul", name: "title", widget: "string"}
       - label: "Harga"
@@ -85,3 +84,4 @@ collections:
           - {label: "Foto Produk", name: "photo", widget: "image"}
       - {label: "Deskripsi", name: "body", widget: "markdown"}
       - {label: "Tag", name: "tags", widget: "list", hint: "Pisahkan dengan koma"}
+      - {label: "Tanggal", name: "date", widget: "datetime"}

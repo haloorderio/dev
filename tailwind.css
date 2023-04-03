@@ -146,7 +146,7 @@
 		@apply bg-slate-100 inline py-1 px-2 rounded-md text-xs [&_span]:font-bold;
 	}
 	.product-attribute span {
-		@apply bg-color-1 text-white inline py-1 px-2 rounded-md text-xs font-bold uppercase tracking-widest;
+		@apply bg-emerald-500 text-white inline py-1 px-2 rounded-md text-xs font-bold uppercase tracking-widest;
 	}
 	.product-description {
 		@apply prose dark:prose-invert my-6;

@@ -25,6 +25,11 @@ input[type=number] {
 	-moz-appearance: textfield;
 }
 
+[class*="NetlifyCreditIcon"],
+[class*="LoginButtonIcon"] {
+	display: none;
+}
+
 [class*="CustomIconWrapper"] {
 	text-align: center;
 }
