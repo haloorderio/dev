@@ -3,7 +3,25 @@ layout: default
 ---
 
 <section class="max-lg:max-w-lg max-w-6xl mx-auto lg:px-10 lg:py-6 lg:flex">
-		<div class="lg:w-4/5 lg:order-2">
+		<div class="swipe lg:hidden product-image {% if page.stock == 'Stok Habis' %}grayscale{% endif %}">
+			{%- if page.thumbnail %}
+			<article class="zoom">
+				<picture class="block skeleton">
+					<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+				</picture>
+			</article>
+			{%- endif %}
+			{%- if page.photos %}
+			{%- for image in page.photos %}
+			<article class="zoom">
+				<picture class="block skeleton">
+					<img src="{{ image.photo }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+				</picture>
+			</article>
+			{%- endfor %}
+			{%- endif %}
+		</div>
+		<div class="max-lg:hidden lg:w-4/5 lg:order-2">
 			<div class="sticky top-4">
 				{%- if page.photos %}
 					<section class="splide product-image {% if page.stock == 'Stok Habis' %}grayscale{% endif %}">
@@ -11,14 +29,14 @@ layout: default
 							<ul class="splide__list">
 								{%- if page.thumbnail %}
 								<li class="splide__slide">
-									<picture class="skeleton">
+									<picture class="block skeleton">
 										<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 									</picture>
 								</li>
 								{%- endif %}
 								{%- for image in page.photos %}
 								<li class="splide__slide">
-									<picture class="skeleton">
+									<picture class="block skeleton">
 										<img src="{{ image.photo }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 									</picture>
 								</li>
@@ -29,7 +47,7 @@ layout: default
 				{%- else %}
 					{%- if page.thumbnail %}
 					<section class="product-image {% if page.stock == 'Stok Habis' %}grayscale{% endif %}">
-						<picture class="skeleton">
+						<picture class="block skeleton">
 							<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 						</picture>
 					</section>
@@ -38,30 +56,30 @@ layout: default
 
 				<section class="product-cart-add max-lg:hidden">
 					<button type="button" class="button" {% if page.stock == "Stok Habis" %}disabled{% endif %}>
-						Masukkan Ke Keranjang
+						Pesan Sekarang
 					</button>
 				</section>
 			</div>
 		</div>
 		<div class="max-lg:px-6 max-lg:py-8 lg:w-full lg:order-1 lg:pr-8">
-			<section class="mb-4">
+			<div class="mb-4">
 				{%- if page.attribute != "Tanpa Atribut" %}
-				<section class="product-attribute mr-2">
+				<article class="product-attribute mr-2">
 					<span>{{ page.attribute }}</span>
-				</section>
+				</article>
 				{%- endif %}
 
 				{%- if page.category %}
-				<section class="product-category">
+				<article class="product-category">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline w-5 h-5 -mt-1">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
 					</svg>
 					<span>{{ page.category }}</span>
-				</section>
+				</article>
 				{% endif -%}
-			</section>
+			</div>
 
-			<section class="product-title">
+			<article class="product-title">
 				<h1>{{ page.title }}</h1>
 
 				{% if page.stock == "Stok Habis" %}
@@ -69,10 +87,10 @@ layout: default
 					{{ page.stock }}
 				</div>
 				{% endif -%}
-			</section>
+			</article>
 
 			{% if page.price -%}
-			<section class="product-price">
+			<article class="product-price">
 				{%- if page.price.promo %}
 					{%- assign regular = page.price.regular | remove: "." %}
 					{%- assign promo = page.price.promo | remove: "." %}
@@ -124,21 +142,21 @@ layout: default
 						Rp <span class="currency">{{ price_regular }}</span>
 					</div>
 				{%- endif %}
-			</section>
+			</article>
 			{% endif -%}
 
-			<section class="product-cart-add lg:hidden">
+			<article class="product-cart-add lg:hidden">
 				<button type="button" class="button" {% if page.stock == "Stok Habis" %}disabled{% endif %}>
-					Masukkan Ke Keranjang
+					Pesan Sekarang
 				</button>
-			</section>
+			</article>
 
-			<section class="product-description">
+			<article class="product-description">
 				{{ content }}
-			</section>
+			</article>
 
-			{% if page.tags %}
-			<section class="product-tag">
+			{% if page.tags.size > 0 %}
+			<article class="product-tag">
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline w-5 h-5 -mt-px">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
 					<path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
@@ -149,7 +167,7 @@ layout: default
 						,
 					{%- endif -%}
 				{% endfor %}
-			</section>
+			</article>
 			{%- endif %}
 		</div>
 	</section>

@@ -89,6 +89,7 @@
 @layer components {
 	.skeleton {
 		position: relative;
+		display: block;
 	}
 	.skeleton:after {
 		content: '';
@@ -124,8 +125,20 @@
 		@apply flex justify-center no-underline w-full h-full rounded-lg shadow-xl py-3 px-4 md:px-6 font-medium text-white hover:text-white bg-color-1 hover:bg-color-2 focus-visible:outline-none disabled:pointer-events-none disabled:text-zinc-400 disabled:bg-zinc-200 disabled:hover:bg-zinc-200 [&.disabled]:pointer-events-none [&.disabled]:text-zinc-400 [&.disabled]:bg-zinc-200 [&.disabled]:hover:bg-zinc-200;
 	}
 
+	.swipe {
+		@apply snap-x snap-mandatory whitespace-nowrap overflow-auto flex;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+	.swipe::-webkit-scrollbar {
+		@apply hidden;
+	}
+	.swipe > * {
+		@apply snap-start whitespace-normal min-w-full;
+	}
+
 	.product-image {
-		@apply max-lg:border-b lg:shadow-xl lg:rounded-lg lg:overflow-hidden;
+		@apply max-lg:border-b lg:border lg:border-slate-100 lg:shadow-xl lg:rounded-xl lg:overflow-hidden;
 	}
 	.product-title {
 		@apply mb-4;

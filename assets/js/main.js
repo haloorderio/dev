@@ -11,11 +11,13 @@
 		}).mount()
 	}
 
-// Product Currency
-	// function numberWithCommas(x) {
-	// 	return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".")
-	// }
+// Product Zoom
+	$('.zoom').zoom({
+		on: 'mouseover',
+		touch: true,
+	})
 
+// Product Currency
 	function numberWithCommas(num) {
 	  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.')
 	}
