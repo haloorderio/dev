@@ -13,7 +13,7 @@
 
 // Product Zoom
 	$('.zoom').zoom({
-		on: 'click',
+		on: 'mouseover',
 		touch: false,
 	})
 

@@ -5,18 +5,22 @@ layout: default
 <section class="max-lg:max-w-lg max-w-6xl mx-auto lg:px-10 lg:py-6 lg:flex">
 		<div class="swipe lg:hidden product-image {% if page.stock == 'Stok Habis' %}grayscale{% endif %}">
 			{%- if page.thumbnail %}
-			<article class="zoom cursor-zoom-in" onclick="this.classList.toggle('!cursor-zoom-out')">
-				<picture class="block skeleton">
-					<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
-				</picture>
+			<article class="slider" onclick="this.classList.toggle('allow-zoom')">
+				<div class="zoom">
+					<picture class="block skeleton">
+						<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+					</picture>
+				</div>
 			</article>
 			{%- endif %}
 			{%- if page.photos %}
 			{%- for image in page.photos %}
-			<article class="zoom cursor-zoom-in" onclick="this.classList.toggle('!cursor-zoom-out')">
-				<picture class="block skeleton">
-					<img src="{{ image.photo }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
-				</picture>
+			<article class="slider" onclick="this.classList.toggle('allow-zoom')">
+				<div class="zoom">
+					<picture class="block skeleton">
+						<img src="{{ image.photo }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+					</picture>
+				</div>
 			</article>
 			{%- endfor %}
 			{%- endif %}
@@ -29,7 +33,7 @@ layout: default
 							<ul class="splide__list">
 								{%- if page.thumbnail %}
 								<li class="splide__slide">
-									<article class="zoom cursor-zoom-in" onclick="this.classList.toggle('!cursor-zoom-out')">
+									<article class="zoom cursor-zoom-in">
 										<picture class="block skeleton">
 											<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 										</picture>
@@ -38,7 +42,7 @@ layout: default
 								{%- endif %}
 								{%- for image in page.photos %}
 								<li class="splide__slide">
-									<article class="zoom cursor-zoom-in" onclick="this.classList.toggle('!cursor-zoom-out')">
+									<article class="zoom cursor-zoom-in">
 										<picture class="block skeleton">
 											<img src="{{ image.photo }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 										</picture>
@@ -51,7 +55,7 @@ layout: default
 				{%- else %}
 					{%- if page.thumbnail %}
 					<div class="product-image {% if page.stock == 'Stok Habis' %}grayscale{% endif %}">
-						<article class="zoom cursor-zoom-in" onclick="this.classList.toggle('!cursor-zoom-out')">
+						<article class="zoom cursor-zoom-in">
 							<picture class="block skeleton">
 								<img src="{{ page.thumbnail }}" alt="{{ page.title }}" class="w-full h-full object-contain aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 							</picture>

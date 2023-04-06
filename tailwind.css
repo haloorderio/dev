@@ -140,6 +140,9 @@
 	.product-image {
 		@apply max-lg:border-b lg:border lg:border-slate-100 lg:shadow-xl lg:rounded-xl lg:overflow-hidden;
 	}
+	.product-image .slider {
+		@apply relative before:content-[''] before:absolute before:z-[1] before:w-full before:h-full before:cursor-zoom-in before:[&.allow-zoom]:-z-[1] before:[&.allow-zoom]:cursor-zoom-out;
+	}
 	.product-title {
 		@apply mb-4;
 	}
