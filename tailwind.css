@@ -162,7 +162,7 @@
 		@apply bg-emerald-500 text-white inline py-1 px-2 rounded-md text-xs font-bold uppercase tracking-widest;
 	}
 	.product-description {
-		@apply prose dark:prose-invert my-10;
+		@apply my-10;
 	}
 	.product-attribute {
 		@apply inline-block align-top;
