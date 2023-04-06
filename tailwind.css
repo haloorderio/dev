@@ -162,16 +162,19 @@
 		@apply bg-emerald-500 text-white inline py-1 px-2 rounded-md text-xs font-bold uppercase tracking-widest;
 	}
 	.product-description {
-		@apply prose dark:prose-invert my-6;
+		@apply prose dark:prose-invert my-10;
 	}
 	.product-attribute {
 		@apply inline-block align-top;
 	}
+	.product-stock {
+		@apply bg-rose-500 text-white inline py-1 px-2 rounded-md text-xs font-bold uppercase tracking-widest max-lg:my-1 lg:inline lg:align-super lg:ml-2;
+	}
 	.product-category {
 		@apply inline-block pt-px;
 	}
-	.product-stock {
-		@apply bg-rose-500 text-white inline py-1 px-2 rounded-md text-xs font-bold uppercase tracking-widest max-lg:my-1 lg:inline lg:align-super lg:ml-2;
+	.product-tag {
+		@apply opacity-50;
 	}
 	.product-cart-add {
 		@apply my-8 lg:my-6;
