@@ -14,7 +14,7 @@
 // Product Zoom
 	$('.zoom').zoom({
 		on: 'click',
-		touch: true,
+		touch: false,
 	})
 
 // Product Currency
