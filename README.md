@@ -55,12 +55,12 @@ git push origin main
 
 1. Go to [Github Developer Settings](https://github.com/settings/developers)
 
-2. On menu `OAuth Apps`, click button `New OAuth App`
+2. On menu `OAuth Apps`, click button `Register a new application`
 
 3. Fill in the form
 ```
 Application name :
-<app_name> e.g. Blog
+<app_name> e.g. Shop
 
 Homepage URL :
 <site_url> e.g. https://hikammn.github.io/
@@ -83,7 +83,15 @@ https://api.netlify.com/auth/done
 
 2. On menu `Sites`, click button `Add new site`, then click `Deploy manually`
 
-3. __on progress__
+3. Drag any file with index.html inside a folder
+
+4. After succeed, go to `Settings`, and copy your site name. It should be something like `relaxed-blancmange-bf2a4b`
+
+5. Then go to `Domain Management` and add your GitHub Pages domain (your.github.io) as a custom domain
+
+6. And then go to `Access control`, scroll down to `OAuth` and click `Install provider`
+
+7. Choose `GitHub` as provider, and enter the `Client ID` and `Client Secret` from **GitHub OAuth Apps** page mentioned above
 
 
 ## Set Config

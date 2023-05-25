@@ -1,5 +1,7 @@
 ---
 layout: page
+hidden: true
+navbar: true
 published: true
 title: judul ketiga
 date: 2023-03-25T12:43:21.574Z

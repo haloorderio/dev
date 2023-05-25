@@ -65,7 +65,7 @@ layout: default
 				{%- endif %}
 
 				<section class="product-cart-add max-lg:hidden">
-					<button type="button" class="button" {% if page.stock == "Stok Habis" %}disabled{% endif %}>
+					<button type="button" class="button" {% if page.stock == "Stok Habis" %}disabled{% endif %} onclick="order('{{ site.data.config.general.whatsapp_number }}','{{ site.data.config.general.whatsapp_chat | markdownify | url_encode | replace: '%3Cp%3E', '' | replace: '%3C%2Fp%3E', '' | replace: '+', '%20'}}','{{ page.title }}','{{ site.data.config.general.url }}{{ page.url }}')">
 						Pesan Sekarang
 					</button>
 				</section>
@@ -81,11 +81,13 @@ layout: default
 
 				{%- if page.category %}
 				<article class="product-category">
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline w-5 h-5 -mt-1">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
-						<path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
-					</svg>
-					<span>{{ page.category }}</span>
+					<a href="/kategori/?q={{ page.category | replace: ' ', '+' }}">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline w-5 h-5 -mt-1">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
+							<path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
+						</svg>
+						<span>{{ page.category }}</span>
+					</a>
 				</article>
 				{% endif -%}
 			</div>
@@ -93,59 +95,61 @@ layout: default
 			<article class="product-title">
 				<h1>{{ page.title }}</h1>
 
-				{% if page.stock == "Stok Habis" %}
+				{%- if page.stock == "Stok Habis" %}
 				<div class="product-stock">
 					{{ page.stock }}
 				</div>
-				{% endif -%}
+				{%- endif %}
 			</article>
 
 			{% if page.price -%}
 			<article class="product-price">
 				{%- if page.price.promo %}
-					{%- assign regular = page.price.regular | remove: "." %}
-					{%- assign promo = page.price.promo | remove: "." %}
+					{%- if page.price.promo != "" %}
+						{%- assign regular = page.price.regular | remove: "." %}
+						{%- assign promo = page.price.promo | remove: "." %}
 
-					<div class="flex items-center gap-2 my-1">
-						{%- assign price_promo = promo %}
-						<div class="current">
-							Rp <span class="currency">{{ price_promo }}</span>
-						</div>
+						<div class="flex items-center gap-2 my-1">
+							{%- assign price_promo = promo %}
+							<div class="current">
+								Rp <span class="currency">{{ price_promo }}</span>
+							</div>
 
-						{%- assign float_regular = regular | times: 1.0 %}
-						{%- assign float_promo = promo | times: 1.0 %}
-						{%- assign decimal = float_promo | divided_by: float_regular | times: 100 %}
-						{%- assign decimal_split = decimal | split: '.' %}
-						{%- assign fix_decimal = decimal | minus: 100 | remove: "-" %}
-						{%- assign fix_decimal_split = decimal_split[0] | minus: 100 | remove: "-" %}
+							{%- assign float_regular = regular | times: 1.0 %}
+							{%- assign float_promo = promo | times: 1.0 %}
+							{%- assign decimal = float_promo | divided_by: float_regular | times: 100 %}
+							{%- assign decimal_split = decimal | split: '.' %}
+							{%- assign fix_decimal = decimal | minus: 100 | remove: "-" %}
+							{%- assign fix_decimal_split = decimal_split[0] | minus: 100 | remove: "-" %}
 
-						{%- if decimal_split[1] == "0" %}
-							{%- assign discount = fix_decimal_split %}
-						{%- else %}
-							{%- if decimal_split[1].size <= 2 %}
-								{%- assign discount = fix_decimal %}
+							{%- if decimal_split[1] == "0" %}
+								{%- assign discount = fix_decimal_split %}
 							{%- else %}
-								{%- assign discount = fix_decimal | slice: 0,5 %}
+								{%- if decimal_split[1].size <= 2 %}
+									{%- assign discount = fix_decimal %}
+								{%- else %}
+									{%- assign discount = fix_decimal | round: 2 %}
+								{%- endif %}
 							{%- endif %}
-						{%- endif %}
 
-						<div class="discount">
-							Diskon <span>{{ discount }}%</span>
-						</div>
-					</div>
-
-					<div class="flex items-center gap-2 my-1">
-						{%- assign price_regular = regular %}
-						<div class="line-through past -ml-1">
-							&nbsp;Rp <span class="currency">{{ price_regular }}</span>&nbsp;
+							<div class="discount">
+								Diskon <span>{{ discount }}%</span>
+							</div>
 						</div>
 
-						{%- assign saving = regular | minus: promo %}
-						{%- assign price_saving = saving %}
-						<div class="saving">
-							Kamu hemat Rp <span class="currency">{{ price_saving }}</span>
+						<div class="flex items-center gap-2 my-1">
+							{%- assign price_regular = regular %}
+							<div class="line-through past -ml-1">
+								&nbsp;Rp <span class="currency">{{ price_regular }}</span>&nbsp;
+							</div>
+
+							{%- assign saving = regular | minus: promo %}
+							{%- assign price_saving = saving %}
+							<div class="saving">
+								Kamu hemat Rp <span class="currency">{{ price_saving }}</span>
+							</div>
 						</div>
-					</div>
+					{%- endif %}
 				{%- else %}
 					{%- assign regular = page.price.regular | remove: "." %}
 					{%- assign price_regular = regular %}
@@ -154,13 +158,7 @@ layout: default
 					</div>
 				{%- endif %}
 			</article>
-			{% endif -%}
-
-			<article class="product-cart-add lg:hidden">
-				<button type="button" class="button" {% if page.stock == "Stok Habis" %}disabled{% endif %}>
-					Pesan Sekarang
-				</button>
-			</article>
+			{%- endif %}
 
 			<article class="product-description prose dark:prose-invert">
 				{{ content }}
@@ -172,12 +170,120 @@ layout: default
 					<path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
 				</svg>
 				{% for tag in page.tags %}
-					<span>{{ tag }}</span>
+					<a href="/label/?q={{ tag | replace: ' ', '+' }}">{{ tag }}</a>
 					{%- if forloop.last == false -%}
-						,
+					<span class="opacity-50">,</span>
 					{%- endif -%}
 				{% endfor %}
 			</article>
 			{%- endif %}
+
+			<article class="product-cart-add lg:hidden">
+				<div class="fixed right-0 left-0 bottom-0 px-6 py-4 lg:py-6 z-[1] bg-white/50 backdrop-blur transition-all">
+					<button type="button" class="button max-lg:max-w-lg mx-auto" {% if page.stock == "Stok Habis" %}disabled{% endif %} onclick="order('{{ site.data.config.general.whatsapp_number }}','{{ site.data.config.general.whatsapp_chat | markdownify | url_encode | replace: '%3Cp%3E', '' | replace: '%3C%2Fp%3E', '' | replace: '+', '%20'}}','{{ page.title }}','{{ site.data.config.general.url }}{{ page.url }}')">
+						Pesan Sekarang
+					</button>
+					<div class="backtop">
+						<button type="button" class="button items-center p-2.5 mr-2">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-4 h-4">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
+							</svg>
+						</button>
+					</div>
+				</div>
+			</article>
 		</div>
 	</section>
+
+	{%- capture category_name -%}
+		{{ page.category }}
+	{%- endcapture -%}
+	{%- assign i = 0 -%}
+	{%- if site.categories[category_name].size > 1 %}
+	<hr class="-mt-6 mb-8 lg:mt-6 lg:mb-6" />
+	<section class="max-lg:max-w-lg max-w-6xl mx-auto sm:px-6 lg:px-10 lg:py-6 mb-4">
+		<h2 class="text-lg lg:text-xl sm:mb-6 max-sm:mx-6">Produk Rekomendasi</h2>
+		<div class="product md:grid-cols-2 lg:grid-cols-6 gap-x-6 max-sm:block max-sm:pr-6 sm:p-1 md:p-0 sm:-m-1 md:m-0 slide">
+			{%- for related in site.categories[category_name] limit: 7 %}
+			{%- if related.title == page.title %}
+				{% continue %}
+			{%- endif %}
+			<div class="max-sm:inline-block max-sm:w-4/6 max-sm:py-6 max-sm:pl-6">
+				<article class="product-item">
+					{%- if related.thumbnail %}
+					<a class="block border-b border-slate-100 {% if related.stock == 'Stok Habis' %}grayscale{% endif %}" href="{{ related.url }}">
+						<picture class="block skeleton">
+							<img src="{{ related.thumbnail }}" alt="{{ related.title }}" class="w-full h-full object-cover aspect-square" width="600" height="600" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+						</picture>
+					</a>
+					{%- endif %}
+
+					<div class="product-body p-6 sm:p-4">
+						<a class="block" href="{{ related.url }}">
+							{%- if related.attribute != "Tanpa Atribut" %}
+							<div class="product-attribute mb-2 md:mb-3">
+								<span>{{ related.attribute }}</span>
+							</div>
+							{%- endif %}
+
+							<h3 class="sm:text-sm line-clamp-2 font-normal">{{ related.title }}</h3>
+
+							{% if related.price -%}
+							<div class="product-price my-1">
+								{%- if related.price.promo %}
+									{%- if related.price.promo != "" %}
+										{%- assign regular = related.price.regular | remove: "." %}
+										{%- assign promo = related.price.promo | remove: "." %}
+
+										{%- assign price_promo = promo %}
+										<div class="current sm:!text-base">
+											Rp <span class="currency">{{ price_promo }}</span>
+										</div>
+
+										{%- assign price_regular = regular %}
+										<div class="line-through past -ml-1">
+											&nbsp;Rp <span class="currency">{{ price_regular }}</span>&nbsp;
+										</div>
+
+										{%- assign float_regular = regular | times: 1.0 %}
+										{%- assign float_promo = promo | times: 1.0 %}
+										{%- assign decimal = float_promo | divided_by: float_regular | times: 100 %}
+										{%- assign decimal_split = decimal | split: '.' %}
+										{%- assign fix_decimal = decimal | minus: 100 | remove: "-" %}
+										{%- assign fix_decimal_split = decimal_split[0] | minus: 100 | remove: "-" %}
+
+										{%- if decimal_split[1] == "0" %}
+											{%- assign discount = fix_decimal_split %}
+										{%- else %}
+											{%- if decimal_split[1].size <= 2 %}
+												{%- assign discount = fix_decimal %}
+											{%- else %}
+												{%- assign discount = fix_decimal | round: 2 %}
+											{%- endif %}
+										{%- endif %}
+
+										<div class="discount">
+											Diskon <span>{{ discount }}%</span>
+										</div>
+									{%- endif %}
+								{%- else %}
+									{%- assign regular = related.price.regular | remove: "." %}
+									{%- assign price_regular = regular %}
+									<div class="current sm:!text-base">
+										Rp <span class="currency">{{ price_regular }}</span>
+									</div>
+								{%- endif %}
+							</div>
+							{% endif -%}
+						</a>
+					</div>
+				</article>
+			</div>
+			{%- assign i = i | plus: 1 -%}
+			{%- if i == 6 %}
+				{% break %}
+			{%- endif %}
+			{% endfor %}
+		</div>
+	</section>
+	{%- endif %}

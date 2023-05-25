@@ -1,6 +1,5 @@
 ---
 layout: product
-date: 2023-04-01 02:13
 published: true
 title: Liburan ke Mana Saja
 price:
@@ -14,8 +13,8 @@ photos:
   - photo: /assets/upload/product/image.jpg
   - photo: /assets/upload/product/c1e79d0a-e2e2-4380-8bea-24a03c9a3857.jpeg
 tags:
-  - asik
-  - uye
+  - tag5
+date: 2023-04-02T08:52:50.240Z
 ---
 Pusing dengan segala rutinitas yang ada?
 

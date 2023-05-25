@@ -2,14 +2,14 @@ backend:
   name: github
   repo: hikammn/hikammn.github.io
   branch: main
-  site_domain: relaxed-blancmange-bf2a4b.netlify.app
+  site_domain: helpful-palmier-670b8f.netlify.app
 
 local_backend:
   url: http://localhost:8081/api/v1
 
 site_url: https://hikammn.github.io
 display_url: https://hikammn.github.io
-logo_url: https://hikammn.github.io/assets/img/favicon.png
+logo_url: https://hikammn.github.io/assets/img/logo.png
 
 search: true
 show_preview_links: true
@@ -30,6 +30,8 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template", name: "layout", widget: "hidden", default: "page"}
+      - {label: "Pagination", name: "hidden", widget: "hidden", default: true}
+      - {label: "Tampilkan di Navbar", name: "navbar", widget: "boolean", default: true}
       - {label: "Publikasi", name: "published", widget: "boolean", default: true}
       - {label: "Judul", name: "title", widget: "string"}
       - {label: "Konten", name: "body", widget: "markdown"}
@@ -44,6 +46,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Pagination", name: "hidden", widget: "hidden", default: true}
       - {label: "Publikasi", name: "published", widget: "boolean", default: true}
       - {label: "Judul", name: "title", widget: "string"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
@@ -75,13 +78,75 @@ collections:
       - {label: "Stok", name: "stock", widget: "select", options: ["Stok Ada", "Stok Habis"], default: "Stok Ada"}
       - {label: "Atribut", name: "attribute", widget: "select", options: ["Terlaris", "Baru", "Tanpa Atribut"], default: "Tanpa Atribut"}
       - {label: "Kategori", name: "category", widget: "string"}
-      - {label: "Foto Utama", name: "thumbnail", widget: "image"}
+      - {label: "Foto Utama", name: "thumbnail", widget: "image", hint: "Direkomendasikan ukuran 800x800 pixel"}
       - label: "Foto Lainnya"
         name: "photos"
         widget: "list"
         minimize_collapsed: true
         fields:
-          - {label: "Foto Produk", name: "photo", widget: "image"}
+          - {label: "Foto Produk", name: "photo", widget: "image", hint: "Direkomendasikan ukuran 800x800 pixel"}
       - {label: "Deskripsi", name: "body", widget: "markdown"}
       - {label: "Tag", name: "tags", widget: "list", hint: "Pisahkan dengan koma"}
       - {label: "Tanggal", name: "date", widget: "datetime"}
+  - label: "Pengaturan"
+    name: "config"
+    identifier_field: name
+    media_folder: "../../assets/upload/config"
+    public_folder: "/assets/upload/config"
+    files:
+      - label: "Umum"
+        name: "general"
+        identifier_field: name
+        file: "_data/config/general.yml"
+        fields:
+          - {label: "Nama Situs", name: "title", widget: "string", required: true}
+          - {label: "Judul Situs", name: "headline", widget: "string", required: false}
+          - {label: "URL Situs", name: "url", widget: "string", required: true, hint: "Alamat URL lengkap, contoh: https://contoh.com"}
+          - {label: "Deskripsi Situs", name: "description", widget: "markdown", required: true}
+          - {label: "Kata Kunci", name: "keywords", widget: "list", required: true, hint: "Pisahkan dengan koma"}
+          - {label: "Thumbnail", name: "ogp", widget: "image", hint: "Direkomendasikan ukuran 1200x630 pixel, max. 300 KB", required: true}
+          - {label: "Nomor Telepon", name: "phone_number", widget: "number", required: false, hint: "Gunakan awalan 62, contoh: 62812xxxxxx"}
+          - {label: "Nomor WhatsApp", name: "whatsapp_number", widget: "number", required: true, hint: "Gunakan awalan 62, contoh: 62812xxxxxx"}
+          - {label: "Template Chat", name: "whatsapp_chat", widget: "markdown", required: true}
+      - label: "Logo"
+        name: "logo"
+        identifier_field: name
+        file: "_data/config/logo.yml"
+        fields:
+          - {label: "Favicon", name: "favicon", widget: "image", hint: "Direkomendasikan ukuran 192x192 pixel", required: true}
+      - label: "Keunggulan"
+        name: "icon"
+        identifier_field: name
+        file: "_data/config/icon.yml"
+        fields:
+          - label: "Keunggulan 1"
+            name: "pros1"
+            widget: "object"
+            fields:
+              - {label: "Icon", name: "icon", widget: "image", required: false, hint: "Direkomendasikan ukuran 192x192 pixel"}
+              - {label: "Deskripsi", name: "title", widget: "string", required: false}
+          - label: "Keunggulan 2"
+            name: "pros2"
+            widget: "object"
+            fields:
+              - {label: "Icon", name: "icon", widget: "image", required: false, hint: "Direkomendasikan ukuran 192x192 pixel"}
+              - {label: "Deskripsi", name: "title", widget: "string", required: false}
+          - label: "Keunggulan 3"
+            name: "pros3"
+            widget: "object"
+            fields:
+              - {label: "Icon", name: "icon", widget: "image", required: false, hint: "Direkomendasikan ukuran 192x192 pixel"}
+              - {label: "Deskripsi", name: "title", widget: "string", required: false}
+      - label: "Banner"
+        name: "banner"
+        identifier_field: name
+        file: "_data/config/banner.yml"
+        fields:
+          - {label: "Banner", name: "banner_home", widget: "image", required: false}
+      - label: "Statistik"
+        name: "statistic"
+        identifier_field: name
+        file: "_data/config/statistic.yml"
+        fields:
+          - {label: "Google Tag Manager", name: "gtm", widget: "string", required: false}
+          - {label: "Google Analytics", name: "ga", widget: "string", required: false}

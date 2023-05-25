@@ -3,16 +3,7 @@
 #----------------------------
 
 # Base hostname & protocol for your site, e.g. https://example.com or https://example.github.io
-url: 
-
-# Name of your site, e.g. ACME Corp.
-title: Corporate
-
-# Short bio or description, e.g. Professional architect for your house.
-description: Lorem ipsum qui elit in adipisicing in sint adipisicing commodo occaecat qui consectetur labore.
-
-# Keywords for search engine crawling & separate with comma, e.g. lorem, ipsum, dolor, commodo
-keywords: lorem, ipsum, et, dolor, commodo, incididunt, mollit
+url: https://hikammn.github.io
 
 # What collections do you want to show, value is true or false
 content_pages: false
@@ -22,6 +13,11 @@ content_products: true
 #----------------------------
 # Optional Configs
 #----------------------------
+
+# Display posts on home
+# Pagination path url, e.g. /product/:num/
+paginate: 12
+paginate_path: /produk/:num/
 
 # Subpath of your site, e.g. /blog
 baseurl: 
@@ -37,9 +33,6 @@ tab_color:
 # Step version of media assets with date (ISO 8601, UTC format) with quotes, e.g. "2023-12-31T23:59:59+07:00"
 version: 
 
-# Google Tag Manager web tracking code, e.g. G-TK69RB8KDF
-google_tag_manager: 
-
 #----------------------------
 # System Configs
 #----------------------------
@@ -51,6 +44,7 @@ permalink: /:title/
 plugins:
   - jekyll-postcss
   - jekyll-sitemap
+  - jekyll-paginate
 
 # Set the Sass partials directory, as we're using @imports
 sass:

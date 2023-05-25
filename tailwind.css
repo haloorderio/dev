@@ -10,10 +10,10 @@
 		--font-1: 'DM Sans', sans-serif;
 		/* --font-2: 'Kalam', cursive; */
 
-		--color-1: 53 147 255;	/* #3593ff - Blue */
-		--color-2: 32 123 227;	/* #207be3 - Dark Blue */
-		--color-3: 255 148 63;	/* #e97303 - Dark Orange */
-		--color-4: 255 148 63;	/* #e97303 - Dark Orange */
+		--color-1: 244 63 94;	/* #f43f5e - Red */
+		--color-2: 212 49 77;	/* #d4314d - Dark Red */
+		--color-3: 63 62 62;	/* #3f3e3e - Black */
+		--color-4: 46 45 45;	/* #2e2d2d - Dark Black */
 	}
 
 	* {
@@ -43,11 +43,15 @@
 		print-color-adjust: exact;
 	}
 
+	header {
+		@apply bg-white dark:bg-zinc-900 z-[2];
+	}
+
 	a {
-		@apply transition-[colors_opacity] duration-200 text-color-1 hover:text-color-2;
+		@apply max-md:transition-none transition-[colors_opacity] duration-200 text-color-1 hover:text-color-2;
 	}
 	button {
-		@apply transition-[colors_opacity] duration-200 outline-0;
+		@apply max-md:transition-none transition-[colors_opacity] duration-200 outline-0;
 	}
 	p {
 		@apply mb-5 last:mb-0;
@@ -121,8 +125,66 @@
 		}
 	}
 
+	.label {
+		@apply inline-block text-sm uppercase tracking-widest mb-2 opacity-50;
+	}
+	.input {
+		@apply block w-full rounded-lg py-3 px-4 border border-slate-200 focus:border-color-1 focus:ring-color-1 placeholder-slate-400;
+	}
+
 	.button {
 		@apply flex justify-center no-underline w-full h-full rounded-lg shadow-xl py-3 px-4 md:px-6 font-medium text-white hover:text-white bg-color-1 hover:bg-color-2 focus-visible:outline-none disabled:pointer-events-none disabled:text-zinc-400 disabled:bg-zinc-200 disabled:hover:bg-zinc-200 [&.disabled]:pointer-events-none [&.disabled]:text-zinc-400 [&.disabled]:bg-zinc-200 [&.disabled]:hover:bg-zinc-200;
+	}
+	.button.alt {
+		@apply text-white hover:text-white bg-color-3 hover:bg-color-4;
+	}
+
+	.navbar {
+		@apply md:text-sm max-md:overflow-x-hidden max-md:overflow-y-auto max-md:w-full max-md:h-[calc(100vh-82px)] max-md:mt-4;
+	}
+	.navbar > ul > li > ul {
+		@apply max-md:pl-3;
+	}
+	.navbar > ul > li {
+		@apply block md:inline-block;
+	}
+	.navbar > ul > li > a,
+	.navbar > ul > li > button {
+		@apply md:px-2;
+	}
+	.navbar li.active a,
+	.navbar > ul > li.active > a {
+		@apply pointer-events-none opacity-100 text-color-1;
+	}
+	.navbar > ul > .navbar-dropdown {
+		@apply relative;
+	}
+	.navbar > ul > .navbar-dropdown > ul {
+		@apply md:absolute md:right-0 md:overflow-auto md:max-h-[calc(100vh-4rem)] md:py-2 md:bg-white/60 md:backdrop-blur-xl md:rounded-xl md:shadow-xl md:border md:border-zinc-300/50 md:dark:border-white/10 md:dark:bg-zinc-900;
+	}
+	.navbar a,
+	.navbar button {
+		@apply text-inherit hover:text-inherit md:hover:opacity-50 dark:md:hover:opacity-70 max-md:hover:text-color-1;
+	}
+	.navbar a,
+	.navbar button {
+		@apply block w-full md:w-auto text-left py-3 md:py-2 md:pl-4 pr-4;
+	}
+	.navbar button {
+		@apply relative !pr-8;
+	}
+	.navbar-dropdown button:after {
+		@apply block absolute right-1 md:right-2 -mt-5 p-[2px] transition-all duration-300;
+		content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>');
+	}
+	.navbar-dropdown ul {
+		@apply w-screen md:w-[200px];
+	}
+	.navbar-toggle {
+		@apply flex items-center h-8 py-2 px-1.5 rounded-lg;
+	}
+	.navbar-toggle[aria-expanded="true"] {
+		@apply bg-color-1 text-white;
 	}
 
 	.swipe {
@@ -130,15 +192,60 @@
 		-ms-overflow-style: none;
 		scrollbar-width: none;
 	}
-	.swipe::-webkit-scrollbar {
+	.swipe::-webkit-scrollbar,
+	.slide::-webkit-scrollbar {
 		@apply hidden;
 	}
 	.swipe > * {
 		@apply snap-start whitespace-normal min-w-full;
 	}
+	.slide {
+		@apply snap-x snap-mandatory whitespace-nowrap md:whitespace-normal max-md:overflow-auto;
+	}
+	.slide > * {
+		@apply snap-start whitespace-normal;
+	}
+
+	.brand {
+		@apply flex items-center gap-2 md:gap-3 text-inherit hover:text-inherit;
+	}
+	.brand img {
+		@apply inline-block w-auto h-auto max-w-[200px] md:max-w-[400px] max-h-[30px] md:max-h-[50px] object-contain;
+	}
+	.brand span {
+		@apply inline-block text-lg md:text-xl font-bold;
+	}
+
+	.product {
+		@apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 md:gap-x-8 xl:gap-x-12 gap-y-7 md:gap-y-9 xl:gap-y-14 pb-12;
+	}
+	.product-item {
+		@apply relative flex flex-col border border-slate-100 shadow-xl md:shadow-2xl rounded-xl overflow-hidden hover:border-color-1 hover:outline outline-2 outline-color-1;
+	}
+	.product-item a {
+		@apply text-inherit hover:text-inherit;
+	}
+	.product-item .product-attribute span {
+		@apply text-[10px] md:text-[11px];
+	}
+	.product-item .product-price .current {
+		@apply text-lg;
+	}
+	.product-item .product-price .past {
+		@apply text-xs;
+	}
+	.product-item .product-price .discount {
+		@apply text-xs absolute top-2 right-2;
+	}
+	.product-body {
+		@apply flex flex-col h-full p-3 md:p-4 lg:p-6;
+	}
+	.product-body .button {
+		@apply max-md:p-2 max-md:text-sm shadow-none md:mb-1 h-auto;
+	}
 
 	.product-image {
-		@apply max-lg:border-b lg:border lg:border-slate-100 lg:shadow-xl lg:rounded-xl lg:overflow-hidden;
+		@apply max-lg:border-t max-lg:border-b lg:border lg:border-slate-100 lg:shadow-xl lg:rounded-xl lg:overflow-hidden;
 	}
 	.product-image .slider {
 		@apply relative before:content-[''] before:absolute before:z-[1] before:w-full before:h-full before:cursor-zoom-in before:[&.allow-zoom]:-z-[1] before:[&.allow-zoom]:cursor-zoom-out;
@@ -162,7 +269,7 @@
 		@apply bg-slate-100 inline py-1 px-2 rounded-md text-xs [&_span]:font-bold;
 	}
 	.product-attribute span {
-		@apply bg-emerald-500 text-white inline py-1 px-2 rounded-md text-xs font-bold uppercase tracking-widest;
+		@apply bg-color-3 text-white inline py-1 px-2 rounded-md text-xs font-bold uppercase tracking-widest;
 	}
 	.product-description {
 		@apply my-10;
@@ -174,18 +281,68 @@
 		@apply bg-rose-500 text-white inline py-1 px-2 rounded-md text-xs font-bold uppercase tracking-widest max-lg:my-1 lg:inline lg:align-super lg:ml-2;
 	}
 	.product-category {
-		@apply inline-block pt-px;
+		@apply inline-block pt-px [&_a]:text-inherit hover:[&_a]:text-inherit [&_span]:transition-all hover:[&_span]:opacity-50;
 	}
 	.product-tag {
-		@apply opacity-50;
+		@apply text-sm [&_svg]:opacity-50 [&_a]:text-inherit hover:[&_a]:text-inherit [&_a:not(:hover)]:opacity-50;
 	}
 	.product-cart-add {
 		@apply my-8 lg:my-6;
+	}
+
+	aside .backtop button,
+	.product-cart-add .backtop button {
+		@apply bg-transparent hover:bg-transparent shadow-none text-inherit hover:text-inherit [&.active]:text-color-1;
+	}
+	aside .mobile .backtop,
+	.product-cart-add .backtop {
+		@apply absolute -right-14 w-10 h-10 transition-all;
+	}
+	.product-cart-add .backtop {
+		@apply bottom-5;
+	}
+	html.scroll aside .mobile,
+	html.scroll .product-cart-add > div {
+		@apply pr-16 [&_.backtop]:right-4;
+	}
+	aside .desktop .backtop {
+		@apply absolute bottom-2 -right-14 w-10 h-10 transition-all;
+	}
+	html.scroll aside .desktop {
+		@apply pr-9 [&_.backtop]:-right-2;
+	}
+
+	.pagination {
+		@apply flex items-center justify-between gap-2;
+	}
+	.pagination svg {
+		@apply block w-4 h-4;
+	}
+	.pagination a,
+	.pagination span {
+		@apply inline-block p-3 rounded-lg text-inherit border border-slate-200;
+	}
+	.pagination a {
+		@apply hover:bg-color-1 hover:text-white;
+	}
+	.pagination span {
+		@apply text-black/30;
+	}
+	.pagination form {
+		@apply inline-block align-top mx-1;
+	}
+	.pagination select {
+		@apply block w-full appearance-none cursor-pointer rounded-lg py-2 pl-4 pr-9 border border-slate-200 focus:border-color-1 focus:ring-color-1;
 	}
 }
 
 @layer utilities {
 	.aspect-square {
 		aspect-ratio: 1 / 1;
+	}
+
+	/* https://codepen.io/sosuke/pen/Pjoqqp */
+	.img-to-color-1 {
+		filter: invert(32%) sepia(27%) saturate(4735%) hue-rotate(326deg) brightness(105%) contrast(91%);
 	}
 }
