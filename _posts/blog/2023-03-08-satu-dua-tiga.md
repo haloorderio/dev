@@ -8,7 +8,6 @@ category: Mainan
 tag:
   - Ajib
   - Ulala
-  - ""
 ---
 M﻿encoba bikin sebuah tulisan singkat saja hari ini.
 
