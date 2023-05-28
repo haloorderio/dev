@@ -1,7 +1,7 @@
 ---
 layout: page
 hidden: true
-navbar: false
+navbar: true
 published: true
 title: tes laman lagi 2
 date: 2023-03-22T04:43:00.148Z
