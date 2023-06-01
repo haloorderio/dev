@@ -65,9 +65,15 @@ layout: default
 				{%- endif %}
 
 				<section class="product-cart-add max-lg:hidden">
+					{%- if site.data.config.general.checkout != "" %}
+					<a href="{{ site.data.config.general.checkout }}" target="_blank" rel="noopener noreferrer" class="button max-lg:max-w-lg mx-auto {% if page.stock == "Stok Habis" %}disabled{% endif %}">
+						Pesan Sekarang
+					</a>
+					{%- else %}
 					<button type="button" class="button" {% if page.stock == "Stok Habis" %}disabled{% endif %} onclick="order('{{ site.data.config.general.whatsapp_number }}','{{ site.data.config.general.whatsapp_chat | markdownify | url_encode | replace: '%3Cp%3E', '' | replace: '%3C%2Fp%3E', '' | replace: '+', '%20'}}','{{ page.title }}','{{ site.data.config.general.url }}{{ page.url }}')">
 						Pesan Sekarang
 					</button>
+					{%- endif %}
 				</section>
 			</div>
 		</div>
