@@ -294,21 +294,19 @@
 	.product-cart-add .backtop button {
 		@apply bg-transparent hover:bg-transparent shadow-none text-inherit hover:text-inherit [&.active]:text-color-1;
 	}
-	aside .mobile .backtop,
 	.product-cart-add .backtop {
 		@apply absolute -right-14 w-10 h-10 transition-all;
 	}
 	.product-cart-add .backtop {
 		@apply bottom-5;
 	}
-	html.scroll aside .mobile,
 	html.scroll .product-cart-add > div {
 		@apply pr-16 [&_.backtop]:right-4;
 	}
-	aside .desktop .backtop {
-		@apply absolute bottom-2 -right-14 w-10 h-10 transition-all;
+	aside section .backtop {
+		@apply absolute bottom-1 lg:bottom-2 -right-14 w-10 h-10 transition-all;
 	}
-	html.scroll aside .desktop {
+	html.scroll aside section {
 		@apply pr-9 [&_.backtop]:-right-2;
 	}
 

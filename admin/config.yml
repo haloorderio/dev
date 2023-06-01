@@ -36,24 +36,24 @@ collections:
       - {label: "Judul", name: "title", widget: "string"}
       - {label: "Konten", name: "body", widget: "markdown"}
       - {label: "Tanggal", name: "date", widget: "datetime"}
-  - label: "Blog"
-    name: "blog"
-    identifier_field: name
-    folder: "_posts/blog"
-    media_folder: "../../assets/upload/blog"
-    public_folder: "/assets/upload/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Template", name: "layout", widget: "hidden", default: "blog"}
-      - {label: "Pagination", name: "hidden", widget: "hidden", default: true}
-      - {label: "Publikasi", name: "published", widget: "boolean", default: true}
-      - {label: "Judul", name: "title", widget: "string"}
-      - {label: "Thumbnail", name: "thumbnail", widget: "image"}
-      - {label: "Kategori", name: "category", widget: "string"}
-      - {label: "Tag", name: "tags", widget: "list", hint: "Pisahkan dengan koma"}
-      - {label: "Konten", name: "body", widget: "markdown"}
-      - {label: "Tanggal", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm"}
+  # - label: "Blog"
+  #   name: "blog"
+  #   identifier_field: name
+  #   folder: "_posts/blog"
+  #   media_folder: "../../assets/upload/blog"
+  #   public_folder: "/assets/upload/blog"
+  #   create: true
+  #   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  #   fields:
+  #     - {label: "Template", name: "layout", widget: "hidden", default: "blog"}
+  #     - {label: "Pagination", name: "hidden", widget: "hidden", default: true}
+  #     - {label: "Publikasi", name: "published", widget: "boolean", default: true}
+  #     - {label: "Judul", name: "title", widget: "string"}
+  #     - {label: "Thumbnail", name: "thumbnail", widget: "image"}
+  #     - {label: "Kategori", name: "category", widget: "string"}
+  #     - {label: "Tag", name: "tags", widget: "list", hint: "Pisahkan dengan koma"}
+  #     - {label: "Konten", name: "body", widget: "markdown"}
+  #     - {label: "Tanggal", name: "date", widget: "datetime", date_format: "DD-MM-YYYY", time_format: "HH:mm", format: "YYYY-MM-DD HH:mm"}
   - label: "Produk"
     name: "product"
     identifier_field: name
@@ -104,10 +104,11 @@ collections:
           - {label: "URL Situs", name: "url", widget: "string", required: true, hint: "Alamat URL lengkap, contoh: https://contoh.com"}
           - {label: "Deskripsi Situs", name: "description", widget: "markdown", required: true}
           - {label: "Kata Kunci", name: "keywords", widget: "list", required: true, hint: "Pisahkan dengan koma"}
+          - {label: "Tahun Hak Cipta", name: "copyright", widget: "string", required: true}
           - {label: "Thumbnail", name: "ogp", widget: "image", hint: "Direkomendasikan ukuran 1200x630 pixel, max. 300 KB", required: true}
-          - {label: "Nomor Telepon", name: "phone_number", widget: "number", required: false, hint: "Gunakan awalan 62, contoh: 62812xxxxxx"}
           - {label: "Nomor WhatsApp", name: "whatsapp_number", widget: "number", required: true, hint: "Gunakan awalan 62, contoh: 62812xxxxxx"}
           - {label: "Template Chat", name: "whatsapp_chat", widget: "markdown", required: true}
+          - {label: "URL Checkout", name: "checkout", widget: "string", required: false, hint: "Silakan diisi jika tidak ingin menggunakan checkout ke WhatsApp"}
       - label: "Logo"
         name: "logo"
         identifier_field: name
@@ -142,7 +143,14 @@ collections:
         identifier_field: name
         file: "_data/config/banner.yml"
         fields:
-          - {label: "Banner", name: "banner_home", widget: "image", required: false}
+          - {label: "Banner", name: "banner_home_single", widget: "image", required: false}
+          - label: "Banner"
+            name: "banner_home"
+            widget: "list"
+            minimize_collapsed: true
+            fields:
+              - {label: "Desktop", name: "desktop", widget: "image", hint: "Direkomendasikan ukuran ...x... pixel"}
+              - {label: "Mobile", name: "mobile", widget: "image", hint: "Direkomendasikan ukuran ...x... pixel"}
       - label: "Statistik"
         name: "statistic"
         identifier_field: name
