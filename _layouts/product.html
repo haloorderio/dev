@@ -65,8 +65,8 @@ layout: default
 				{%- endif %}
 
 				<section class="product-cart-add max-lg:hidden">
-					{%- if site.data.config.general.checkout != "" %}
-					<a href="{{ site.data.config.general.checkout }}" target="_blank" rel="noopener noreferrer" class="button max-lg:max-w-lg mx-auto {% if page.stock == "Stok Habis" %}disabled{% endif %}">
+					{%- if page.checkout or page.checkout != "" %}
+					<a href="{{ page.checkout }}" target="_blank" rel="noopener noreferrer" class="button max-lg:max-w-lg mx-auto {% if page.stock == "Stok Habis" %}disabled{% endif %}">
 						Pesan Sekarang
 					</a>
 					{%- else %}
@@ -186,8 +186,8 @@ layout: default
 
 			<article class="product-cart-add lg:hidden">
 				<div class="fixed right-0 left-0 bottom-0 px-6 py-4 lg:py-6 z-[1] bg-white/50 backdrop-blur transition-all">
-					{%- if site.data.config.general.checkout != "" %}
-					<a href="{{ site.data.config.general.checkout }}" target="_blank" rel="noopener noreferrer" class="button max-lg:max-w-lg mx-auto {% if page.stock == "Stok Habis" %}disabled{% endif %}">
+					{%- if page.checkout or page.checkout != "" %}
+					<a href="{{ page.checkout }}" target="_blank" rel="noopener noreferrer" class="button max-lg:max-w-lg mx-auto {% if page.stock == "Stok Habis" %}disabled{% endif %}">
 						Pesan Sekarang
 					</a>
 					{%- else %}

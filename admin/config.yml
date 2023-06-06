@@ -87,6 +87,7 @@ collections:
           - {label: "Foto Produk", name: "photo", widget: "image", hint: "Direkomendasikan ukuran 800x800 pixel"}
       - {label: "Deskripsi", name: "body", widget: "markdown"}
       - {label: "Tag", name: "tags", widget: "list", hint: "Pisahkan dengan koma"}
+      - {label: "URL Checkout", name: "checkout", widget: "string", required: false, hint: "Silakan diisi jika tidak ingin menggunakan checkout ke WhatsApp"}
       - {label: "Tanggal", name: "date", widget: "datetime"}
   - label: "Pengaturan"
     name: "config"
@@ -108,7 +109,6 @@ collections:
           - {label: "Thumbnail", name: "ogp", widget: "image", hint: "Direkomendasikan ukuran 1200x630 pixel, max. 300 KB", required: true}
           - {label: "Nomor WhatsApp", name: "whatsapp_number", widget: "number", required: true, hint: "Gunakan awalan 62, contoh: 62812xxxxxx"}
           - {label: "Template Chat", name: "whatsapp_chat", widget: "markdown", required: true}
-          - {label: "URL Checkout", name: "checkout", widget: "string", required: false, hint: "Silakan diisi jika tidak ingin menggunakan checkout ke WhatsApp"}
       - label: "Logo"
         name: "logo"
         identifier_field: name
