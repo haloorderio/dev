@@ -1898,21 +1898,52 @@ select {
     margin-bottom: 1.5rem;
   }
 }
-aside .backtop button,
-	.product-cart-add .backtop button {
+aside section .backtop {
+  position: absolute;
+  bottom: 0.25rem;
+  right: -3.5rem;
+  height: 2rem;
+  width: 2rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+@media (min-width: 1024px) {
+
+  aside section .backtop {
+    bottom: 0.75rem;
+  }
+}
+aside section .backtop button {
+  --tw-bg-opacity: 1;
+  background-color: rgb(228 228 231 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(113 113 122 / var(--tw-text-opacity));
+}
+aside section .backtop button:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-1) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+aside section .backtop button.active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-1) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.product-cart-add .backtop button {
   background-color: transparent;
   color: inherit;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-aside .backtop button:hover,
-	.product-cart-add .backtop button:hover {
+.product-cart-add .backtop button:hover {
   background-color: transparent;
   color: inherit;
 }
-aside .backtop button.active,
-	.product-cart-add .backtop button.active {
+.product-cart-add .backtop button.active {
   --tw-text-opacity: 1;
   color: rgb(var(--color-1) / var(--tw-text-opacity));
 }
@@ -1931,22 +1962,6 @@ html.scroll .product-cart-add > div {
 }
 html.scroll .product-cart-add > div .backtop {
   right: 1rem;
-}
-aside section .backtop {
-  position: absolute;
-  bottom: 0.25rem;
-  right: -3.5rem;
-  height: 2.5rem;
-  width: 2.5rem;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-@media (min-width: 1024px) {
-
-  aside section .backtop {
-    bottom: 0.5rem;
-  }
 }
 html.scroll aside section {
   padding-right: 2.25rem;
@@ -2106,9 +2121,6 @@ html.scroll aside section .backtop {
 }
 .mb-2 {
   margin-bottom: 0.5rem;
-}
-.mb-24 {
-  margin-bottom: 6rem;
 }
 .mb-3 {
   margin-bottom: 0.75rem;

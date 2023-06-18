@@ -149,8 +149,8 @@ collections:
             widget: "list"
             minimize_collapsed: true
             fields:
-              - {label: "Desktop", name: "desktop", widget: "image", hint: "Direkomendasikan ukuran ...x... pixel"}
-              - {label: "Mobile", name: "mobile", widget: "image", hint: "Direkomendasikan ukuran ...x... pixel"}
+              - {label: "Desktop", name: "desktop", widget: "image", hint: "Direkomendasikan ukuran 1200x250 pixel"}
+              - {label: "Mobile", name: "mobile", widget: "image", hint: "Direkomendasikan ukuran 400x180 pixel"}
       - label: "Statistik"
         name: "statistic"
         identifier_field: name

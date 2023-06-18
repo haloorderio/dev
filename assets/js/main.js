@@ -19,7 +19,7 @@
 		document.querySelector('.navbar').classList.add('hidden')
 		document.querySelector('.navbar-toggle').setAttribute('aria-expanded','false')
 	}
-	document.querySelector('.navbar-toggle').onclick = () => {
+	document.querySelector('.navbar-toggle').addEventListener('click', () => {
 		if ( window.location.href.indexOf('#') > -1 ) {
 			history.back()
 			navbarCloseMenu()
@@ -27,7 +27,7 @@
 			window.location.href = '#'
 			navbarOpenMenu()
 		}
-	}
+	})
 
 	window.addEventListener('popstate', () => {
 		if ( window.location.href.indexOf('#') > -1 ) {
@@ -252,7 +252,14 @@
 			item.addEventListener('click', () => {
 				let input = document.querySelector(target)
 				if ( input ) {
-					input.focus()
+					let url = window.location.href
+					if ( url.indexOf('#') > -1 ) {
+						history.back()
+						navbarCloseMenu()
+						input.focus()
+					} else {
+						input.focus()
+					}
 				} else {
 					window.location.href = url
 				}
