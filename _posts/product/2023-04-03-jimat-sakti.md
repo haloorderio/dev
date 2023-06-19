@@ -15,6 +15,7 @@ photos:
   - photo: /assets/upload/product/62745d7c-1f58-414e-89da-a9a3c5a813bf.jpeg
 tags:
   - Aksesoris
+checkout: https://tokopedia.link/agtR4ynHKAb
 date: 2023-04-03T09:52:50.240Z
 ---
 Jimat Sakti untuk menghilangkan ingatan buruk dengan mantan.
