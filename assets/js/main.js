@@ -268,12 +268,19 @@
 	}
 	searchNavbar('.navbar-search','#search-input','/cari/')
 
-// Product Slider
-	for (let i=0; i<document.getElementsByClassName('splide').length; i++) {
-		new Splide('.splide', {
-			pagination: false,
-		}).mount()
+// Slider
+	function slider(selector) {
+		let items = document.querySelectorAll(selector)
+		for (let i=0; i<items.length; i++) {
+			new Splide(selector, {
+				pagination: false,
+			}).mount()
+			if ( items[i].querySelectorAll('.splide__slide').length < 2 ) {
+				items[i].querySelector('.splide__arrows').classList.add('hidden')
+			}
+		}
 	}
+	slider('.splide')
 
 // Product Zoom
 	if ( document.querySelector('.zoom') ) {

@@ -143,14 +143,15 @@ collections:
         identifier_field: name
         file: "_data/config/banner.yml"
         fields:
-          - {label: "Banner", name: "banner_home_single", widget: "image", required: false}
           - label: "Banner"
             name: "banner_home"
             widget: "list"
             minimize_collapsed: true
             fields:
-              - {label: "Desktop", name: "desktop", widget: "image", hint: "Direkomendasikan ukuran 1200x250 pixel"}
-              - {label: "Mobile", name: "mobile", widget: "image", hint: "Direkomendasikan ukuran 400x180 pixel"}
+              - {label: "Desktop", name: "desktop", widget: "image", required: false, hint: "Direkomendasikan ukuran 1200x250 pixel"}
+              - {label: "Mobile", name: "mobile", widget: "image", required: false, hint: "Direkomendasikan ukuran 400x180 pixel"}
+              - {label: "Tautan", name: "link", widget: "string", required: false, hint: "Silakan diisi jika banner ingin tertaut ke URL tertentu"}
+              - {label: "Buka di Tab Baru", name: "tab", widget: "select", options: ["Ya", "Tidak"], default: "Tidak"}
       - label: "Statistik"
         name: "statistic"
         identifier_field: name

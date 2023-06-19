@@ -25,10 +25,14 @@
 	<link rel="preload" as="style" href="{{ '/assets/css/main.css' | relative_url }}{% if site.version %}?v={{ site.version }}{% endif %}" />
 	<link rel="preload" as="script" href="{{ '/assets/js/main.js' | relative_url }}{% if site.version %}?v={{ site.version }}{% endif %}" />
 	{%- if page.layout == 'product' %}
-	<link rel="preload" as="style" href="{{ '/assets/css/splide.min.css' | relative_url }}" />
 	<link rel="preload" as="script" href="{{ '/assets/js/jquery.min.js' | relative_url }}" />
+	<link rel="preload" as="style" href="{{ '/assets/css/splide.min.css' | relative_url }}" />
 	<link rel="preload" as="script" href="{{ '/assets/js/splide.min.js' | relative_url }}" />
 	<link rel="preload" as="script" href="{{ '/assets/js/zoom.min.js' | relative_url }}" />
+	{%- endif %}
+	{%- if page.url == '/' and site.data.config.banner.banner_home.size > 1 %}
+	<link rel="preload" as="style" href="{{ '/assets/css/splide.min.css' | relative_url }}" />
+	<link rel="preload" as="script" href="{{ '/assets/js/splide.min.js' | relative_url }}" />
 	{%- endif %}
 	{%- if page.url contains 'cari' %}
 	<link rel="preload" as="script" href="{{ '/assets/js/search.min.js' | relative_url }}" />
@@ -36,6 +40,9 @@
 
 	<!-- Main -->
 	{%- if page.layout == 'product' %}
+	<link rel="stylesheet" href="{{ '/assets/css/splide.min.css' | relative_url }}" />
+	{%- endif %}
+	{%- if page.url == '/' and site.data.config.banner.banner_home.size > 1 %}
 	<link rel="stylesheet" href="{{ '/assets/css/splide.min.css' | relative_url }}" />
 	{%- endif %}
 	<link rel="stylesheet" href="{{ '/assets/css/font.css' | relative_url }}{% if site.version %}?v={{ site.version }}{% endif %}" />
@@ -122,9 +129,66 @@
 <main>
 	{%- assign pagin = site.paginate_path | remove: ":num/" -%}
 	{%- if page.url == '/' or page.url contains pagin %}
-	{%- if site.data.config.banner.banner_home_single != "" %}
-	<section class="max-w-6xl mx-auto lg:px-10">
-		<img src="{{ site.data.config.banner.banner_home_single | relative_url }}" alt="banner" width="640" height="360" class="block mx-auto" />
+	
+	{%- if site.data.config.banner.banner_home != empty %}
+	<section>
+		{%- if site.data.config.banner.banner_home.size > 1 %}
+		<div class="splide">
+			<div class="splide__track">
+				<ul class="splide__list">
+					{%- for image in site.data.config.banner.banner_home %}
+					<li class="splide__slide">
+						{%- if image.link %}
+						<a href="{{ image.link }}" class="block" {%- if image.tab == 'Ya' %} target="_blank" rel="noopener noreferrer"{% endif %}>
+							<article>
+								<picture class="hidden md:block mx-auto skeleton">
+									<img src="{{ image.desktop | relative_url }}" alt="banner" width="1200" height="250" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+								</picture>
+								<picture class="block md:hidden mx-auto skeleton">
+									<img src="{{ image.mobile | relative_url }}" alt="banner" width="400" height="180" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+								</picture>
+							</article>
+						</a>
+						{%- else %}
+						<article>
+							<picture class="hidden md:block mx-auto skeleton">
+								<img src="{{ image.desktop | relative_url }}" alt="banner" width="1200" height="250" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+							</picture>
+							<picture class="block md:hidden mx-auto skeleton">
+								<img src="{{ image.mobile | relative_url }}" alt="banner" width="400" height="180" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+							</picture>
+						</article>
+						{%- endif %}
+					</li>
+					{%- endfor %}
+				</ul>
+			</div>
+		</div>
+		{% else %}
+		{%- for image in site.data.config.banner.banner_home %}
+		{%- if image.link %}
+		<a href="{{ image.link }}" class="block" {%- if image.tab == 'Ya' %} target="_blank" rel="noopener noreferrer"{% endif %}>
+			<article>
+				<picture class="hidden md:block mx-auto skeleton">
+					<img src="{{ image.desktop | relative_url }}" alt="banner" width="1200" height="250" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+				</picture>
+				<picture class="block md:hidden mx-auto skeleton">
+					<img src="{{ image.mobile | relative_url }}" alt="banner" width="400" height="180" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+				</picture>
+			</article>
+		</a>
+		{%- else %}
+		<article>
+			<picture class="hidden md:block mx-auto skeleton">
+				<img src="{{ image.desktop | relative_url }}" alt="banner" width="1200" height="250" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+			</picture>
+			<picture class="block md:hidden mx-auto skeleton">
+				<img src="{{ image.mobile | relative_url }}" alt="banner" width="400" height="180" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+			</picture>
+		</article>
+		{%- endif %}
+		{%- endfor %}
+		{%- endif %}
 	</section>
 	{%- endif %}
 
@@ -222,6 +286,9 @@
 	<script src="{{ '/assets/js/jquery.min.js' | relative_url }}"></script>
 	<script src="{{ '/assets/js/splide.min.js' | relative_url }}"></script>
 	<script src="{{ '/assets/js/zoom.min.js' | relative_url }}"></script>
+	{%- endif %}
+	{%- if page.url == '/' and site.data.config.banner.banner_home.size > 1 %}
+	<script src="{{ '/assets/js/splide.min.js' | relative_url }}"></script>
 	{%- endif %}
 	{%- if page.url contains 'cari' %}
 	<script src="{{ '/assets/js/search.min.js' | relative_url }}"></script>

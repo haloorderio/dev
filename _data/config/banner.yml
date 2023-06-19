@@ -1,1 +1,8 @@
-banner_home_single: /assets/upload/config/header-siapkerjocom-ilmu.gif
+banner_home:
+  - desktop: https://placehold.co/1200x250?text=Banner+Desktop+1+Punya+Link
+    mobile: https://placehold.co/400x180?text=Banner+Mobile+1+Punya+Link
+    link: https://google.com/
+    tab: Ya
+  - desktop: https://placehold.co/1200x250?text=Banner+Desktop+2
+    mobile: https://placehold.co/400x180?text=Banner+Mobile+2
+    tab: Tidak
