@@ -142,20 +142,20 @@
 						<a href="{{ image.link }}" class="block" {%- if image.tab == 'Ya' %} target="_blank" rel="noopener noreferrer"{% endif %}>
 							<article>
 								<picture class="hidden md:block mx-auto skeleton">
-									<img src="{{ image.desktop | relative_url }}" alt="banner" width="1200" height="250" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+									<img src="{{ image.desktop | relative_url }}" alt="banner" width="1200" height="250" class="w-full h-auto max-h-[60vh] object-contain" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 								</picture>
 								<picture class="block md:hidden mx-auto skeleton">
-									<img src="{{ image.mobile | relative_url }}" alt="banner" width="400" height="180" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+									<img src="{{ image.mobile | relative_url }}" alt="banner" width="400" height="180" class="w-full h-auto max-h-[60vh] object-contain" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 								</picture>
 							</article>
 						</a>
 						{%- else %}
 						<article>
 							<picture class="hidden md:block mx-auto skeleton">
-								<img src="{{ image.desktop | relative_url }}" alt="banner" width="1200" height="250" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+								<img src="{{ image.desktop | relative_url }}" alt="banner" width="1200" height="250" class="w-full h-auto max-h-[60vh] object-contain" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 							</picture>
 							<picture class="block md:hidden mx-auto skeleton">
-								<img src="{{ image.mobile | relative_url }}" alt="banner" width="400" height="180" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+								<img src="{{ image.mobile | relative_url }}" alt="banner" width="400" height="180" class="w-full h-auto max-h-[60vh] object-contain" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 							</picture>
 						</article>
 						{%- endif %}
@@ -170,20 +170,20 @@
 		<a href="{{ image.link }}" class="block" {%- if image.tab == 'Ya' %} target="_blank" rel="noopener noreferrer"{% endif %}>
 			<article>
 				<picture class="hidden md:block mx-auto skeleton">
-					<img src="{{ image.desktop | relative_url }}" alt="banner" width="1200" height="250" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+					<img src="{{ image.desktop | relative_url }}" alt="banner" width="1200" height="250" class="w-full h-auto max-h-[60vh] object-contain" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 				</picture>
 				<picture class="block md:hidden mx-auto skeleton">
-					<img src="{{ image.mobile | relative_url }}" alt="banner" width="400" height="180" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+					<img src="{{ image.mobile | relative_url }}" alt="banner" width="400" height="180" class="w-full h-auto max-h-[60vh] object-contain" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 				</picture>
 			</article>
 		</a>
 		{%- else %}
 		<article>
 			<picture class="hidden md:block mx-auto skeleton">
-				<img src="{{ image.desktop | relative_url }}" alt="banner" width="1200" height="250" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+				<img src="{{ image.desktop | relative_url }}" alt="banner" width="1200" height="250" class="w-full h-auto max-h-[60vh] object-contain" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 			</picture>
 			<picture class="block md:hidden mx-auto skeleton">
-				<img src="{{ image.mobile | relative_url }}" alt="banner" width="400" height="180" class="w-full h-auto max-h-[60vh] object-contain" loading="lazy" onload="this.closest('.skeleton').classList.remove('skeleton')" />
+				<img src="{{ image.mobile | relative_url }}" alt="banner" width="400" height="180" class="w-full h-auto max-h-[60vh] object-contain" onload="this.closest('.skeleton').classList.remove('skeleton')" />
 			</picture>
 		</article>
 		{%- endif %}
