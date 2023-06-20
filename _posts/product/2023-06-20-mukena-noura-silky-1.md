@@ -1,23 +1,23 @@
 ---
 layout: product
 published: true
-title: Mukena Noura Silky
+title: Mukena Sara Silky
 price:
   regular: 215000
   promo: 177000
 stock: Stok Ada
 attribute: Baru
 category: Mukena Atas Bawah
-thumbnail: https://mukenalarizka.com/products/mukenalarizka-Mukena-Noura-Silky-01.JPG
+thumbnail: https://mukenalarizka.com/products/mukenalarizka-Mukena-Sara-Silky-01.JPG
 photos:
-  - photo: https://mukenalarizka.com/products/mukenalarizka-Mukena-Noura-Silky-02.JPG
-  - photo: https://mukenalarizka.com/products/mukenalarizka-Mukena-Noura-Silky-04.JPG
-  - photo: https://mukenalarizka.com/products/mukenalarizka-Mukena-Noura-Silky-07.JPG
+  - photo: https://mukenalarizka.com/products/mukenalarizka-Mukena-Sara-Silky-02.JPG
+  - photo: https://mukenalarizka.com/products/mukenalarizka-Mukena-Sara-Silky-03.JPG
+  - photo: https://mukenalarizka.com/products/mukenalarizka-Mukena-Sara-Silky-04.JPG
 tags:
   - mukena-silky
 date: 2023-06-20T23:57:17.175Z
 ---
-## Mukena Larizka Noura Silky
+## Mukena Larizka Sara Silky
 
 **Detail Mukena:**
 
@@ -42,7 +42,7 @@ Ukuran Jumbo membuatmu leluasa bergerak saat sholat dan tidak khawatir aurat ter
 - - -
 
 * Terdapat tas cantik untuk menyimpan mukena dengan rapih.
-* Terdapat 15 variasi warna yang gemesh banget.
+* Terdapat 5 variasi warna yang gemesh banget.
 
 *\* Kemiripan warna 95% karena pencahayaan saat proses foto*
 
