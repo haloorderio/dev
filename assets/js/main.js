@@ -269,7 +269,21 @@
 	searchNavbar('.navbar-search','#search-input','/cari/')
 
 // Slider
-	function slider(selector) {
+	function sliderBanner(selector) {
+		let items = document.querySelectorAll(selector)
+		for (let i=0; i<items.length; i++) {
+			new Splide(selector, {
+				pagination: true,
+				arrows: false,
+				autoplay: true,
+				interval: 4000,
+				rewind: true,
+			}).mount()
+		}
+	}
+	sliderBanner('.splide.banner-top')
+
+	function sliderProduct(selector) {
 		let items = document.querySelectorAll(selector)
 		for (let i=0; i<items.length; i++) {
 			new Splide(selector, {
@@ -280,7 +294,7 @@
 			}
 		}
 	}
-	slider('.splide')
+	sliderProduct('.splide.product-image')
 
 // Product Zoom
 	if ( document.querySelector('.zoom') ) {
