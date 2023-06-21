@@ -16,9 +16,7 @@ date: 2023-06-21T00:16:53.590Z
 ---
 ## Mukena Larizka Talitha
 
-[Video Mukena Talitha - mukenalarizka.com](https://www.youtube.com/embed/t5U0dtoycJk)
-
-<center><iframe width="322" height="573" src="https://www.youtube.com/embed/t5U0dtoycJk" title="Video Mukena Talitha - mukenalarizka.com" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></center>
+<center><iframe width="322" height="573" src="https://www.youtube.com/embed/t5U0dtoycJk?rel=0" title="Video Mukena Talitha - mukenalarizka.com" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></center>
 
 **Detail Mukena:**
 
