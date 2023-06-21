@@ -18,6 +18,8 @@ date: 2023-06-21T00:16:53.590Z
 
 [Video Mukena Talitha - mukenalarizka.com](https://www.youtube.com/embed/t5U0dtoycJk)
 
+<center><iframe width="322" height="573" src="https://www.youtube.com/embed/t5U0dtoycJk" title="Video Mukena Talitha - mukenalarizka.com" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe></center>
+
 **Detail Mukena:**
 
 * Material viscose crepe: lembut, flowy, halus dan ga mudah kusut. Bahannya glowing kayak mukena silk ya, jadi terlihat sangat mewah
