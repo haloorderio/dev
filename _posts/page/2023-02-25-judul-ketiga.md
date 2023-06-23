@@ -4,7 +4,7 @@ hidden: true
 navbar: true
 published: true
 title: judul ketiga
-date: 2023-03-25T12:43:21.574Z
+date: 2023-02-25T12:43:21.574Z
 ---
 Ea commodo et nisi id mollit ea voluptate amet et ut reprehenderit dolore tempor non. Sunt ex ut laborum dolore minim laborum nisi aliqua ut exercitation dolor irure non. Eiusmod sed nisi proident laboris laboris esse ut adipisicing laboris laborum. Velit exercitation adipisicing do minim consectetur proident eiusmod sunt.
 

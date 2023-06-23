@@ -42,7 +42,8 @@
 	{%- if page.layout == 'product' %}
 	<link rel="stylesheet" href="{{ '/assets/css/splide.min.css' | relative_url }}" />
 	{%- endif %}
-	{%- if page.url == '/' and site.data.config.banner.banner_home.size > 1 %}
+	{%- assign pagin = site.paginate_path | remove: ":num/" -%}
+	{%- if page.url == '/' or page.url contains pagin and site.data.config.banner.banner_home.size > 1 %}
 	<link rel="stylesheet" href="{{ '/assets/css/splide.min.css' | relative_url }}" />
 	{%- endif %}
 	<link rel="stylesheet" href="{{ '/assets/css/font.css' | relative_url }}{% if site.version %}?v={{ site.version }}{% endif %}" />
@@ -127,7 +128,6 @@
 </header>
 
 <main>
-	{%- assign pagin = site.paginate_path | remove: ":num/" -%}
 	{%- if page.url == '/' or page.url contains pagin %}
 	
 	{%- if site.data.config.banner.banner_home != empty %}
