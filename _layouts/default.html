@@ -287,7 +287,7 @@
 	<script src="{{ '/assets/js/splide.min.js' | relative_url }}"></script>
 	<script src="{{ '/assets/js/zoom.min.js' | relative_url }}"></script>
 	{%- endif %}
-	{%- if page.url == '/' and site.data.config.banner.banner_home.size > 1 %}
+	{%- if page.url == '/' or page.url contains pagin and site.data.config.banner.banner_home.size > 1 %}
 	<script src="{{ '/assets/js/splide.min.js' | relative_url }}"></script>
 	{%- endif %}
 	{%- if page.url contains 'cari' %}

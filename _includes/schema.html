@@ -1,6 +1,7 @@
 
 	<!-- Schema.org -->
-	{%- if page.url == '/' %}
+	{%- assign pagin = site.paginate_path | remove: ":num/" -%}
+	{%- if page.url == '/' or page.url contains pagin %}
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org/",
