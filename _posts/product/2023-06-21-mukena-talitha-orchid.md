@@ -8,7 +8,7 @@ price:
 stock: Stok Ada
 attribute: Baru
 category: Mukena Atas Bawah
-thumbnail: https://mukenalarizka.com/products/mukenalarizka-Mukena-Talitha-Orchid.JPG
+thumbnail: https://mukenalarizka.orderio.id/products/mukenalarizka-Mukena-Talitha-Orchid.JPG
 photos: []
 tags:
   - mukena-polos
