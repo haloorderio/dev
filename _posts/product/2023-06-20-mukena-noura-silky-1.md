@@ -8,11 +8,11 @@ price:
 stock: Stok Ada
 attribute: Baru
 category: Mukena Atas Bawah
-thumbnail: https://mukenalarizka.com/products/mukenalarizka-Mukena-Sara-Silky-01.JPG
+thumbnail: https://mukenalarizka.orderio.id/products/mukenalarizka-Mukena-Sara-Silky-01.JPG
 photos:
-  - photo: https://mukenalarizka.com/products/mukenalarizka-Mukena-Sara-Silky-02.JPG
-  - photo: https://mukenalarizka.com/products/mukenalarizka-Mukena-Sara-Silky-03.JPG
-  - photo: https://mukenalarizka.com/products/mukenalarizka-Mukena-Sara-Silky-04.JPG
+  - photo: https://mukenalarizka.orderio.id/products/mukenalarizka-Mukena-Sara-Silky-02.JPG
+  - photo: https://mukenalarizka.orderio.id/products/mukenalarizka-Mukena-Sara-Silky-03.JPG
+  - photo: https://mukenalarizka.orderio.id/products/mukenalarizka-Mukena-Sara-Silky-04.JPG
 tags:
   - mukena-silky
 date: 2023-06-20T23:57:17.175Z
