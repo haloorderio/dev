@@ -3,7 +3,7 @@
 #----------------------------
 
 # Base hostname & protocol for your site, e.g. https://example.com or https://example.github.io
-url: https://dev.orderio.id
+url: https://dev.orderio.my.id
 
 # What collections do you want to show, value is true or false
 content_pages: false
