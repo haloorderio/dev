@@ -2,7 +2,7 @@ backend:
   name: github
   repo: haloorderio/dev
   branch: main
-  site_domain: lovely-naiad-fc4c1d.netlify.app
+  site_domain: gentle-cajeta-c11fad.netlify.app
 
 local_backend:
   url: http://localhost:8081/api/v1
