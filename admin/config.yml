@@ -7,9 +7,9 @@ backend:
 local_backend:
   url: http://localhost:8081/api/v1
 
-site_url: https://dev.orderio.id
-display_url: https://dev.orderio.id
-logo_url: https://dev.orderio.id/assets/img/logo.png
+site_url: https://dev.orderio.my.id
+display_url: https://dev.orderio.my.id
+logo_url: https://dev.orderio.my.id/assets/img/logo.png
 
 search: true
 show_preview_links: true
